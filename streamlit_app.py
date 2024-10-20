@@ -77,6 +77,112 @@ def show_match_details(match_id):
         st.write("No match details found.")
 
 def show_innings_scorecard(inning_data, title):
+    # # Batting scorecard
+    # st.write("Batting")
+    # batting_order = []
+    
+    # # Iterate through the innings data to establish the batting order
+    # for i, row in inning_data.iterrows():
+    #     batsman = row['batsman']
+    #     non_striker = row['non_striker']
+        
+    #     if batsman not in batting_order:
+    #         batting_order.append(batsman)
+    #     if non_striker not in batting_order:
+    #         batting_order.append(non_striker)
+    
+    # # Calculate total extras
+    # total_extras = inning_data['extras'].sum()
+    
+    # # Aggregate batting data for runs, balls faced, fours, and sixes
+    # batting_data = inning_data.groupby(['batsman']).agg({
+    #     'batsman_runs': 'sum',
+    #     'valid_ball': 'sum',
+    #     'is_four': 'sum',
+    #     'is_six': 'sum'
+    # }).reset_index()
+    
+    # # Initialize columns for Wicket and Dismissal Kind
+    # batting_data['Wicket'] = "Not Out"  # Default value if no dismissal
+    # batting_data['Dismissal Kind'] = "-"  # Default value if no dismissal
+    
+    # # Populate Wicket and Dismissal Kind based on dismissal events
+    # for index, row in batting_data.iterrows():
+    #     batsman = row['batsman']
+        
+    #     # Check if this batsman was dismissed
+    #     dismissed_data = inning_data[(inning_data['batsman'] == batsman) & (inning_data['is_wkt'] == 1)]
+        
+    #     if not dismissed_data.empty:
+    #         dismissal_event = dismissed_data.iloc[0]
+            
+    #         # If bowler_wkt is 1, the bowler took the wicket
+    #         if dismissal_event['bowler_wkt'] == 1:
+    #             batting_data.at[index, 'Wicket'] = dismissal_event['bowler']
+    #         else:
+    #             batting_data.at[index, 'Wicket'] = "-"
+            
+    #         # Update dismissal kind
+    #         batting_data.at[index, 'Dismissal Kind'] = dismissal_event['dismissal_kind']
+        
+    #     # Handle retired cases
+    #     retired_data = inning_data[(inning_data['batsman'] == batsman) & (inning_data['dismissal_kind'] == 'retired')]
+    #     if not retired_data.empty:
+    #         retired_event = retired_data.iloc[-1]
+    #         batting_data.at[index, 'Wicket'] = "-"
+    #         batting_data.at[index, 'Dismissal Kind'] = retired_event['dismissal_kind']
+    
+    # # Now handle players who are dismissed but have no valid balls faced
+    # for player in inning_data['player_dismissed'].unique():
+    #     # Check if player is already in the batting_data
+    #     if player not in batting_data['batsman'].values:
+    #         # Get data for the dismissed player
+    #         player_data = (inning_data[inning_data['player_dismissed'] == player])
+    #         p_data = inning_data[inning_data['batsman'] == player]
+    #         valid_ball_sum = p_data['valid_ball'].sum()         
+            
+    #         # Handling the case where the player is dismissed without facing a legal ball
+    #         if valid_ball_sum == 0:
+    #             dismissal_event = inning_data[inning_data['player_dismissed'] == player]  # Get the first row since it's a single dismissal event
+    #             # dismissal_event = inning_data[inning_data['player_dismissed'] == player].iloc[0]
+    #             if not dismissal_event.empty:
+    #                 # bowler_wkt = dismissal_event['bowler_wkt'] #if isinstance(dismissal_event['bowler_wkt'], pd.Series) else dismissal_event['bowler_wkt']
+                    
+    #                 # Create a new row for the player to be added to the batting data
+    #                 new_row = pd.DataFrame({
+    #                     'batsman': [player],
+    #                     'batsman_runs': [0],
+    #                     'valid_ball': [0],
+    #                     'is_four': [0],
+    #                     'is_six': [0],
+    #                     # 'Wicket': [dismissal_event['bowler'] if dismissal_event['bowler_wkt'] == 1 else '-'],
+    #                     # 'Dismissal Kind': [dismissal_event['dismissal_kind']]
+    #                     'Wicket': ["-"],  # Default value for Wicket
+    #                     'Dismissal Kind': ["-"]
+    #                 })
+    #                 # Check if 'bowler_wkt' exists in the dismissal event data
+    #                 new_row.at[0, 'Dismissal Kind'] = dismissal_event['dismissal_kind'].values[0] if isinstance(dismissal_event['dismissal_kind'], pd.Series) else dismissal_event['dismissal_kind']
+    #             # Use pd.concat to add the new row to the existing DataFrame
+    #                 batting_data = pd.concat([batting_data, new_row], ignore_index=True)
+    
+    # # Calculate strike rate
+    # batting_data['batter_sr'] = (batting_data['batsman_runs'] / batting_data['valid_ball']).replace({0 : 0}) * 100
+    
+    # # Rename columns for the batting scorecard
+    # batting_data.columns = ['Batsman', 'R', 'B', '4s', '6s', 'Wicket', 'Dismissal Kind', 'SR']
+    
+    # # Filter out batsmen with 0 runs (if needed)
+    # batting_data['order'] = batting_data['Batsman'].apply(lambda x: batting_order.index(x) if x in batting_order else -1)
+    # batting_data = batting_data.sort_values(by='order').drop(columns='order').reset_index(drop=True)
+    # batting_data.index = batting_data.index + 1
+    
+    # # Display the batting table
+    # st.table(batting_data)
+    
+    # # Show extras
+    # st.write(f"**Extras:** {total_extras}")
+    # Your previous logic for innings data and setting up batting_order
+
     # Batting scorecard
     st.write("Batting")
     batting_order = []
@@ -144,10 +250,8 @@ def show_innings_scorecard(inning_data, title):
             # Handling the case where the player is dismissed without facing a legal ball
             if valid_ball_sum == 0:
                 dismissal_event = inning_data[inning_data['player_dismissed'] == player]  # Get the first row since it's a single dismissal event
-                # dismissal_event = inning_data[inning_data['player_dismissed'] == player].iloc[0]
+                
                 if not dismissal_event.empty:
-                    # bowler_wkt = dismissal_event['bowler_wkt'] #if isinstance(dismissal_event['bowler_wkt'], pd.Series) else dismissal_event['bowler_wkt']
-                    
                     # Create a new row for the player to be added to the batting data
                     new_row = pd.DataFrame({
                         'batsman': [player],
@@ -155,8 +259,6 @@ def show_innings_scorecard(inning_data, title):
                         'valid_ball': [0],
                         'is_four': [0],
                         'is_six': [0],
-                        # 'Wicket': [dismissal_event['bowler'] if dismissal_event['bowler_wkt'] == 1 else '-'],
-                        # 'Dismissal Kind': [dismissal_event['dismissal_kind']]
                         'Wicket': ["-"],  # Default value for Wicket
                         'Dismissal Kind': ["-"]
                     })
@@ -167,6 +269,31 @@ def show_innings_scorecard(inning_data, title):
     
     # Calculate strike rate
     batting_data['batter_sr'] = (batting_data['batsman_runs'] / batting_data['valid_ball']).replace({0 : 0}) * 100
+    
+    # Add logic to remove batsmen with 0 runs, 0 balls, not run out, and duplicate surnames
+    def get_surname(name):
+        return name.split()[-1]
+    
+    # Group the batting data by surname to check for duplicates
+    batting_data['surname'] = batting_data['batsman'].apply(get_surname)
+    surname_counts = batting_data['surname'].value_counts()
+    
+    # Filter out batsmen who satisfy all the conditions
+    def should_remove_batsman(row):
+        # Condition 1: Runs and Balls faced are both 0
+        if row['batsman_runs'] == 0 and row['valid_ball'] == 0:
+            # Condition 2: Dismissal Kind is not 'run out'
+            if row['Dismissal Kind'] != 'run out':
+                # Condition 3: Surname appears more than once in the batting list
+                if surname_counts[row['surname']] > 1:
+                    return True
+        return False
+    
+    # Remove batsmen who meet all the conditions
+    batting_data = batting_data[~batting_data.apply(should_remove_batsman, axis=1)]
+    
+    # Drop the 'surname' column since it's no longer needed
+    batting_data = batting_data.drop(columns='surname')
     
     # Rename columns for the batting scorecard
     batting_data.columns = ['Batsman', 'R', 'B', '4s', '6s', 'Wicket', 'Dismissal Kind', 'SR']
@@ -181,6 +308,7 @@ def show_innings_scorecard(inning_data, title):
     
     # Show extras
     st.write(f"**Extras:** {total_extras}")
+
 
 
     
