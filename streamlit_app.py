@@ -1187,6 +1187,37 @@ if sidebar_option == "Player Profile":
                         st.markdown(f"### **In Host State**")
                         st.table(result_df.style.set_table_attributes("style='font-weight: bold;'"))
 
+    with tab3:
+            st.header("Current Form")
+            current_form_df = get_current_form(bpdf, player_name)
+            
+            if not current_form_df.empty:
+                current_form_df.columns = [col.upper() for col in current_form_df.columns]
+                
+                # Rearranging columns
+                cols = current_form_df.columns.tolist()
+                new_order = ['MATCH ID', 'DATE'] + [col for col in cols if col not in ['MATCH ID', 'DATE']]
+                current_form_df = current_form_df[new_order]
+                current_form_df = current_form_df.loc[:, ~current_form_df.columns.duplicated()]
+                
+                # Formatting the date
+                current_form_df['DATE'] = pd.to_datetime(current_form_df['DATE'], format='%m/%d/%Y')
+                current_form_df = current_form_df.sort_values(by='DATE', ascending=False)
+                current_form_df = current_form_df.reset_index(drop=True)
+                current_form_df['DATE'] = current_form_df['DATE'].dt.strftime('%m/%d/%Y')
+                
+                # Displaying the table with clickable MATCH ID
+                current_form_df.index = current_form_df.index + 1
+                st.markdown(current_form_df.to_html(escape=False), unsafe_allow_html=True)
+                
+                # Handling clicks on MATCH ID links
+                for match_id in current_form_df['MATCH ID']:
+                    if st.button(f'View Match {match_id}'):
+                        print("Fn called")
+                        print(match_id)
+                        show_match_details(match_id)
+            else:
+                st.write("No recent matches found for this player.")
 
                   
     
