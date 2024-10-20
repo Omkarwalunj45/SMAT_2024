@@ -1153,7 +1153,7 @@ if sidebar_option == "Player Profile":
                         i = 0
                         for country in allowed_states:
                             temp_df = bpdf[bpdf['bowler'] == player_name] 
-                            temp_df = temp_df[(temp_df['country'] == country)]
+                            temp_df = temp_df[(temp_df['state'] == country)]
                             temp_df = bcum(temp_df)
                             temp_df.insert(0, 'country', country.upper())
                 
