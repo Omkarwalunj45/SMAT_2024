@@ -666,7 +666,7 @@ if sidebar_option == "Player Profile":
             # Display Career Averages based on selection
             if option == "Batting":
                 # Create a temporary DataFrame and filter the player's row
-                temp_df = idf.drop(columns=['final_year','matches','batting_team'])
+                temp_df = idf.drop(columns=['final_year','matches'])
                 player_stats = temp_df[temp_df['batsman'] == player_name]  # Filter for the selected player
     
                 # Convert column names to uppercase and replace underscores with spaces
