@@ -976,7 +976,7 @@ if sidebar_option == "Player Profile":
                         result_df = pd.concat([result_df, temp_df],ignore_index=True)
                         
                 
-                    result_df = result_df.drop(columns=['batsman', 'batting_team','debut_year','final_year','matches_x','matches_y','batting_team'])
+                    # result_df = result_df.drop(columns=['batsman', 'batting_team','debut_year','final_year','matches_x','matches_y','batting_team'])
                     # Round off the remaining float columns to 2 decimal places
                     float_cols = result_df.select_dtypes(include=['float']).columns
                     result_df[float_cols] = result_df[float_cols].round(2)
@@ -990,8 +990,8 @@ if sidebar_option == "Player Profile":
                 #    # Convert the specified columns to integer type
                 result_df[columns_to_convert] = result_df[columns_to_convert].astype(int)
                 cols = result_df.columns.tolist()
-                if 'COUNTRY' in cols:
-                    new_order = ['COUNTRY'] + [col for col in cols if col != 'COUNTRY']
+                if 'STATE' in cols:
+                    new_order = ['STATE'] + [col for col in cols if col != 'STATE']
                     result_df = result_df[new_order]
                 # result_df = result_df.loc[:, ~result_df.columns.duplicated()]
                     result_df = result_df.drop(columns=['MATCHES'])
