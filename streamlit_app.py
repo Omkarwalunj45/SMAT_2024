@@ -18,6 +18,7 @@ pdf[cols_conv] = pdf[cols_conv].astype(str)
 pdf=pdf.rename(columns={'innings':'inning'})
 bpdf=pdf
 idf = pd.read_csv("Dataset/lifesaver_bat_smat.csv",low_memory=False)
+
 info_df=pd.read_csv("Dataset/cricket_players_data.csv",low_memory=False)
 bidf=pd.read_csv("Dataset/lifesaver_bowl_smat.csv",low_memory=False)
 info_df=info_df.rename(columns={'player':'Player_name'})
