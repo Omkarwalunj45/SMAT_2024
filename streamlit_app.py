@@ -22,6 +22,7 @@ bidf=pd.read_csv("Dataset/lifesaver_bowl_smat.csv",low_memory=False)
 info_df=info_df.rename(columns={'player':'Player_name'})
 pdf[['noballs', 'wides','byes','legbyes','penalty']] = pdf[['noballs', 'wides','byes','legbyes','penalty']].fillna(0).astype(int)
 pdf['valid_ball'] = pdf.apply(lambda x: 1 if (x['wides'] == 0 and x['noballs'] == 0) else 0, axis=1)
+idf=idf[idf['final_year']=='2023/24']
 
 def show_match_details(match_id):
     print("Hello")
@@ -573,7 +574,7 @@ if sidebar_option == "Player Profile":
     st.header("Player Profile")
 
     # Player search input (selectbox)
-    player_name = st.selectbox("Search for a player", info_df['Player_name'].unique())
+    player_name = st.selectbox("Search for a player", idf['batsman'].unique())
 
     # Filter the data for the selected player
     player_info = idf[idf['batsman'] == player_name].iloc[0]
