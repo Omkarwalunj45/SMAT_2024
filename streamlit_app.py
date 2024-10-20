@@ -573,7 +573,7 @@ if sidebar_option == "Player Profile":
     st.header("Player Profile")
 
     # Player search input (selectbox)
-    player_name = st.selectbox("Search for a player", info_df['player_name'].unique())
+    player_name = st.selectbox("Search for a player", info_df['Player_name'].unique())
 
     # Filter the data for the selected player
     player_info = idf[idf['batsman'] == player_name].iloc[0]
