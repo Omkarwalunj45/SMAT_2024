@@ -11,7 +11,7 @@ csv_files = [
     "Dataset/SMAT1_updated_final2.csv"
 ]
 dataframes = [pd.read_csv(csv_file, low_memory=False) for csv_file in csv_files]
-pdf = pd.concat(dataframes, ignore_index=True)
+pdf = pd.concat(dataframes)
 cols_conv=['season','match_id']
 pdf[cols_conv] = pdf[cols_conv].astype(str)
 pdf=pdf.rename(columns={'innings':'inning'})
