@@ -940,56 +940,62 @@ if sidebar_option == "Player Profile":
                 # # Continue with the rest of the analysis for seasons and innings similar to how you have structured it.
 
                 # # Creating a DataFrame to display venues and their corresponding countries
-                # pdf['country'] = pdf['venue'].map(venue_country_map).fillna('Unknown')
-                # allowed_countries = ['India', 'England', 'Australia', 'Pakistan', 'Bangladesh',
-                #          'West Indies', 'Scotland', 'South Africa', 'New Zealand', 'Sri Lanka']
-                # i=0
-                # for country in allowed_countries:
-                #     temp_df = pdf[pdf['batsman'] == player_name]
-                #     # print(temp_df.match_id.unique())
-                #     # print(temp_df.head(20))
-                #     temp_df = temp_df[(temp_df['country'] == country)]
-                #     temp_df = cumulator(temp_df)
-                #     temp_df['country']=country.upper()
-                #     cols = temp_df.columns.tolist()
-                #     new_order = ['country'] + [col for col in cols if col != 'country']
-                #     # Reindex the DataFrame with the new column order
-                #     temp_df =temp_df[new_order]
-                #     # print(temp_df)
-                #  # If temp_df is empty after applying cumulator, skip to the next iteration
-                #     if len(temp_df) == 0:
-                #        continue
-                #     elif i==0:
-                #         result_df = temp_df
-                #         i=i+1
-                #     else:
-                #         result_df = result_df.reset_index(drop=True)
-                #         temp_df = temp_df.reset_index(drop=True)
-                #         result_df = result_df.loc[:, ~result_df.columns.duplicated()]
+                pdf['state'] = pdf['venue'].map(venue_state_map).fillna('Unknown')
+                allowed_states = ['Andhra', 'Arunachal Pradesh', 'Assam', 'Baroda', 'Bengal',
+                                  'Bihar', 'Chandigarh', 'Chattisgarh', 'Delhi', 'Goa', 'Gujarat',
+                                  'Haryana', 'Himachal Pradesh', 'Hyderabad (India)',
+                                  'Jammu & Kashmir', 'Jharkhand', 'Karnataka', 'Kerala',
+                                  'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram',
+                                  'Mumbai', 'Nagaland', 'Odisha', 'Puducherry', 'Punjab', 'Railways',
+                                  'Rajasthan', 'Saurashtra', 'Services', 'Sikkim', 'Tamil Nadu',
+                                  'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'Vidarbha']
+                i=0
+                # for state in allowed_state:
+                    temp_df = pdf[pdf['batsman'] == player_name]
+                    # print(temp_df.match_id.unique())
+                    # print(temp_df.head(20))
+                    temp_df = temp_df[(temp_df['state'] == state)]
+                    temp_df = cumulator(temp_df)
+                    temp_df['state']=country.upper()
+                    cols = temp_df.columns.tolist()
+                    new_order = ['state'] + [col for col in cols if col != 'state']
+                    # Reindex the DataFrame with the new column order
+                    temp_df =temp_df[new_order]
+                    # print(temp_df)
+                 # If temp_df is empty after applying cumulator, skip to the next iteration
+                    if len(temp_df) == 0:
+                       continue
+                    elif i==0:
+                        result_df = temp_df
+                        i=i+1
+                    else:
+                        result_df = result_df.reset_index(drop=True)
+                        temp_df = temp_df.reset_index(drop=True)
+                        result_df = result_df.loc[:, ~result_df.columns.duplicated()]
                 
-                #         result_df = pd.concat([result_df, temp_df],ignore_index=True)
+                        result_df = pd.concat([result_df, temp_df],ignore_index=True)
                         
                 
-                #     result_df = result_df.drop(columns=['batsman', 'batting_team','debut_year','final_year','matches_x','matches_y','batting_team'])
-                #     # Round off the remaining float columns to 2 decimal places
-                #     float_cols = result_df.select_dtypes(include=['float']).columns
-                #     result_df[float_cols] = result_df[float_cols].round(2)
-                # result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
-                # result_df = round_up_floats(result_df)
-                # columns_to_convert = ['RUNS', 'HUNDREDS', 'FIFTIES', 'THIRTIES', 'HIGHEST SCORE']
+                    result_df = result_df.drop(columns=['batsman', 'batting_team','debut_year','final_year','matches_x','matches_y','batting_team'])
+                    # Round off the remaining float columns to 2 decimal places
+                    float_cols = result_df.select_dtypes(include=['float']).columns
+                    result_df[float_cols] = result_df[float_cols].round(2)
+                result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
+                result_df = round_up_floats(result_df)
+                columns_to_convert = ['RUNS', 'HUNDREDS', 'FIFTIES', 'THIRTIES', 'HIGHEST SCORE']
     
-                # #    # Fill NaN values with 0
-                # result_df[columns_to_convert] = result_df[columns_to_convert].fillna(0)
+                #    # Fill NaN values with 0
+                result_df[columns_to_convert] = result_df[columns_to_convert].fillna(0)
                     
-                # #    # Convert the specified columns to integer type
-                # result_df[columns_to_convert] = result_df[columns_to_convert].astype(int)
-                # cols = result_df.columns.tolist()
-                # if 'COUNTRY' in cols:
-                #     new_order = ['COUNTRY'] + [col for col in cols if col != 'COUNTRY']
-                #     result_df = result_df[new_order]
-                # # result_df = result_df.loc[:, ~result_df.columns.duplicated()]
-                #     result_df = result_df.drop(columns=['MATCHES'])
-                # st.markdown(f"### **In Host Country**")
-                # st.table(result_df.style.set_table_attributes("style='font-weight: bold;'"))
+                #    # Convert the specified columns to integer type
+                result_df[columns_to_convert] = result_df[columns_to_convert].astype(int)
+                cols = result_df.columns.tolist()
+                if 'COUNTRY' in cols:
+                    new_order = ['COUNTRY'] + [col for col in cols if col != 'COUNTRY']
+                    result_df = result_df[new_order]
+                # result_df = result_df.loc[:, ~result_df.columns.duplicated()]
+                    result_df = result_df.drop(columns=['MATCHES'])
+                st.markdown(f"### **In Host Country**")
+                st.table(result_df.style.set_table_attributes("style='font-weight: bold;'"))
                   
     
