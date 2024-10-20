@@ -604,7 +604,7 @@ if sidebar_option == "Player Profile":
         
         with col2:
             st.markdown("TEAM:")
-            st.markdown(f"<span style='font-size: 20px; font-weight: bold;'>{player_info['batting_team'].upper()}</span>", unsafe_allow_html=True)
+            st.markdown(f"<span style='font-size: 20px; font-weight: bold;'>{p_info['team'].upper()}</span>", unsafe_allow_html=True)
         
         with col3:
             st.markdown("AGE:")
