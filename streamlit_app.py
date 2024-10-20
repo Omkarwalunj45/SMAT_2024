@@ -957,7 +957,7 @@ if sidebar_option == "Player Profile":
                     # print(temp_df.head(20))
                     temp_df = temp_df[(temp_df['state'] == state)]
                     temp_df = cumulator(temp_df)
-                    temp_df['state']=country.upper()
+                    temp_df['state']=state.upper()
                     cols = temp_df.columns.tolist()
                     new_order = ['state'] + [col for col in cols if col != 'state']
                     # Reindex the DataFrame with the new column order
