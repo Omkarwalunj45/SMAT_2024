@@ -1,0 +1,631 @@
+player,batting_style,bowling_style,age,role,team
+K Srikar Bharat,Right hand Bat,,30y 7d,Wicketkeeper Batter,Andhra
+Ashwin Hebbar,Right hand Bat,Right arm Slow medium,27y 329d,Opening Batter,Andhra
+Ricky Bhui,Right hand Bat,Legbreak Googly,27y 11d,Top order Batter,Andhra
+Shaik Rasheed,Right hand Bat,Legbreak,19y 16d,Batter,Andhra
+Hanuma Vihari,Right hand Bat,Right arm Offbreak,29y 362d,Batting Allrounder,Andhra
+Prithvi Raj,Left hand Bat,Left arm Medium,25y 232d,Bowler,Andhra
+Harishankar Reddy,Right hand Bat,Right arm Medium,25y 130d,Bowler,Andhra
+KV Sasikanth,Right hand Bat,Right arm Medium,28y 85d,Bowler,Andhra
+S Akhil,Right hand Bat,Right arm Medium fast,24y 353d,Bowler,Andhra
+Dheeraj Kumar,Right hand Bat,Right arm Offbreak,24y 36d,Bowler,Andhra
+M Hemanth Reddy,Right hand Bat,Legbreak,20y 347d,Bowler,Andhra
+K Karan Shinde,Left hand Bat,Legbreak Googly,26y 21d,Bowler,Andhra
+Lalit Mohan,Right hand Bat,Slow Left arm Orthodox,33y 205d,Bowler,Andhra
+Manish Golamaru,Left hand Bat,Slow Left arm Orthodox,27y 27d,Bowler,Andhra
+K Saiteja,Right hand Bat,Right arm Medium,23y 254d,Bowler,Andhra
+Yara Sandeep,Right hand Bat,Right arm Offbreak,24y 8d,Bowler,Andhra
+Cheepurapalli Stephen,Left hand Bat,Left arm Medium,29y 311d,Bowler,Andhra
+Pinninti Tapaswi,Right hand Bat,Right arm Medium,27y 58d,Bowler,Andhra
+Tripurana Vijay,Right hand Bat,Right arm Offbreak,22y 35d,Bowler,Andhra
+AC Ayachi,Right hand Bat,Right arm Medium,28y 111d,Bowler,Arunachal Pradesh
+Neelam Obi,Right hand Bat,Legbreak Googly,30y 261d,Bowler,Arunachal Pradesh
+Techi Doria,Right hand Bat,Right arm Medium,29y 216d,Bowler,Arunachal Pradesh
+Aryan Sahani,Right hand Bat,Right arm Medium fast,16y 105d,Bowler,Arunachal Pradesh
+Ayush Awasthi,Right hand Bat,,16y 320d,Bowler,Arunachal Pradesh
+Jay Bhavsar,Right hand Bat,Slow Left arm Orthodox,22y 307d,Bowler,Arunachal Pradesh
+Sitesh Das,Right hand Bat,Right arm Offbreak,26y 321d,Bowler,Arunachal Pradesh
+Nabam Hachang,Right hand Bat,,26y 332d,Bowler,Arunachal Pradesh
+Aprameya Jaiswal,Right hand Bat,Right arm Offbreak,27y 299d,Bowler,Arunachal Pradesh
+Licha Jhon,Right hand Bat,,25y 296d,Bowler,Arunachal Pradesh
+Nabam Joshi,Right hand Bat,,25y 262d,Bowler,Arunachal Pradesh
+Techi Neri,Right hand Bat,Right arm Offbreak,29y 147d,Bowler,Arunachal Pradesh
+Kumar Nyompu,Left hand Bat,Right arm Offbreak,31y 27d,Bowler,Arunachal Pradesh
+Sagar Rana,Right hand Bat,Right arm Offbreak,22y 315d,Bowler,Arunachal Pradesh
+Yorjum Sera,Left hand Bat,,21y 195d,Bowler,Arunachal Pradesh
+Myendung Singpho,Right hand Bat,Legbreak Googly,26y 346d,Bowler,Arunachal Pradesh
+Techi Sonam,Right hand Bat,,26y 121d,Bowler,Arunachal Pradesh
+Tana Teti,Right hand Bat,Right arm Medium fast,25y 110d,Bowler,Arunachal Pradesh
+Avinash Thapa,Left hand Bat,Slow Left arm Orthodox,26y 280d,Bowler,Arunachal Pradesh
+Yab Niya,Right hand Bat,Right arm Medium fast,28y 351d,Bowler,Arunachal Pradesh
+Divyanshu Yadav,Right hand Bat,Slow Left arm Orthodox,21y 64d,Bowler,Arunachal Pradesh
+Riyan Parag,Right hand Bat,"Right arm Offbreak, Legbreak",21y 334d,Top order Batter,Assam
+Pallavkumar Das,Left hand Bat,Right arm Medium,33y 266d,Top order Batter,Assam
+Sibsankar Roy,Left hand Bat,Right arm Offbreak,33y,Top order Batter,Assam
+Rahul Singh,Right hand Bat,Slow Left arm Orthodox,26y 27d,Bowler,Assam
+Avinov Choudhury,Right hand Bat,Slow Left arm Orthodox,23y 313d,Bowler,Assam
+Rishav Das,Right hand Bat,Right arm Offbreak,33y 298d,Bowler,Assam
+Denish Das,Right hand Bat,Legbreak,21y 146d,Bowler,Assam
+Mrinmoy Dutta,Left hand Bat,Left arm Medium fast,24y 320d,Bowler,Assam
+Sumit Ghadigaonkar,Right hand Bat,,31y 182d,Bowler,Assam
+Sunil Lachit,Right hand Bat,Left arm Medium fast,23y 308d,Bowler,Assam
+Mukhtar Hussain,Right hand Bat,Right arm Medium,24y 272d,Bowler,Assam
+Bishal Roy,Right hand Bat,Right arm Offbreak,21y 53d,Bowler,Assam
+Erik Roy,Right hand Bat,,24y 268d,Bowler,Assam
+Pradyun Saikia,Left hand Bat,Right arm Offbreak,20y 266d,Bowler,Assam
+Kunal Sarma,Right hand Bat,Right arm Offbreak,24y 250d,Bowler,Assam
+Akash Sengupta,Right hand Bat,Right arm Medium,22y 349d,Bowler,Assam
+Sourav Dey,Right hand Bat,Right arm Medium,19y 291d,Bowler,Assam
+Vishnu Solanki,Right hand Bat,Right arm Offbreak,30,Middle order Batter,Baroda
+Anant Bharwad,Right hand Bat,,28,Wicketkeeper Batter,Baroda
+Shivalik Sharma,Left hand Bat,Legbreak Googly,24,Batter,Baroda
+Krunal Pandya,Left hand Bat,Slow Left arm Orthodox,32,Allrounder,Baroda
+Atit Sheth,Right hand Bat,Right arm Medium,27,Allrounder,Baroda
+Lukman Meriwala,Left hand Bat,Left arm Fast medium,31,Bowler,Baroda
+Jay Abhale,Right hand Bat,Right arm Medium fast,23,Bowler,Baroda
+Harsh Desai,Left hand Bat,Right arm Medium fast,20,Bowler,Baroda
+Chintal Gandhi,Left hand Bat,Legbreak,29,Bowler,Baroda
+Jyotsnil Singh,Right hand Bat,Right arm Offbreak,25,Bowler,Baroda
+Kartik Kakade,Right hand Bat,Right arm Offbreak,28,Bowler,Baroda
+Bhanu Pania,Right hand Bat,Right arm Medium fast,27,Bowler,Baroda
+Amit Passi,Right hand Bat,,24,Bowler,Baroda
+Dhruv Patel,Right hand Bat,Right arm Medium,26,Bowler,Baroda
+Mahesh Pithiya,Right hand Bat,Right arm Offbreak,21,Bowler,Baroda
+Abhimanyusingh Rajput,Right hand Bat,Right arm Medium fast,25,Bowler,Baroda
+Ninad Rathva,Left hand Bat,Slow Left arm Orthodox,24,Bowler,Baroda
+Soyeb Sopariya,Right hand Bat,Right arm Medium,29,Bowler,Baroda
+Abishek Porel,Left hand Bat,,20,Wicketkeeper Batter,Bengal
+Abhimanyu Easwaran,Right hand Bat,Legbreak Googly,28,Top order Batter,Bengal
+Agniv Pan,Left hand Bat,,26,Wicketkeeper Batter,Bengal
+Shahbaz Ahmed,Left hand Bat,Slow Left arm Orthodox,28,Allrounder,Bengal
+Akash Deep,Right hand Bat,Right arm Fast medium,26,Bowler,Bengal
+Mukesh Kumar,Right hand Bat,Right arm Medium,29,Bowler,Bengal
+Ishan Porel,Right hand Bat,Right arm Medium,25,Bowler,Bengal
+Prayas Ray Barman,Right hand Bat,Legbreak Googly,20,Bowler,Bengal
+Sudip Kumar Gharami,Right hand Bat,Right arm Offbreak,24,Bowler,Bengal
+Sakshaim Chaudhary,Right hand Bat,Right arm Medium fast,24,Bowler,Bengal
+Debopratim Halder,,,20,Bowler,Bengal
+Habib Gandhi,Right hand Bat,,23,Bowler,Bengal
+Karan Lal,Right hand Bat,Right arm Offbreak,22,Bowler,Bengal
+Kaushik Maity,Left hand Bat,Slow Left arm Orthodox,23,Bowler,Bengal
+Ranjot Khaira,Right hand Bat,Legbreak,24,Bowler,Bengal
+Pradipta Pramanik,Right hand Bat,Slow Left arm Orthodox,24,Bowler,Bengal
+Ravi Kumar,Left hand Bat,Left arm Medium,19,Bowler,Bengal
+Ritwik Roy Chowdhury,Right hand Bat,Right arm Medium,27,Bowler,Bengal
+Babul Kumar,Right hand Bat,,30,Top order Batter,Bihar
+Bipin Saurabh,Right hand Bat,Right arm Medium fast,23,Wicketkeeper Batter,Bihar
+Sachin Kumar,Left hand Bat,Slow Left arm Orthodox,25,Bowling Allrounder,Bihar
+Sakibul Gani,Right hand Bat,Right arm Medium fast,24,Allrounder,Bihar
+Abhijeet Saket,Right hand Bat,Right arm Medium,28,Allrounder,Bihar
+James Birchall,,,45,Allrounder,Bihar
+Gaurav Joshi,Right hand Bat,,24,Allrounder,Bihar
+Suraj Kashyap,Right hand Bat,Right arm Offbreak,20,Allrounder,Bihar
+Sharman Nigrodh,Left hand Bat,Slow Left arm Orthodox,18,Allrounder,Bihar
+Harsh Raj,Right hand Bat,Right arm Offbreak,23,Allrounder,Bihar
+Malay Raj,Right hand Bat,Right arm Medium,20,Allrounder,Bihar
+Akash Raj,Right hand Bat,Right arm Medium fast,20,Allrounder,Bihar
+Paramjeet Singh,Left hand Bat,Slow Left arm Orthodox,21,Allrounder,Bihar
+Krishna Yadav,Right hand Bat,Right arm Offbreak,22,Allrounder,Bihar
+Amod Yadav,Right hand Bat,Right arm Medium,21,Allrounder,Bihar
+Manan Vohra,Right hand Bat,Right arm Medium,30,Opening Batter,Chandigarh
+Raj Bawa,Left hand Bat,Right arm Medium fast,20,Allrounder,Chandigarh
+Murugan Ashwin,Right hand Bat,Legbreak Googly,33,Bowler,Chandigarh
+Bhagmender Lather,Left hand Bat,Slow Left arm Orthodox,26,Bowler,Chandigarh
+Sandeep Sharma,Right hand Bat,Right arm Medium,30,Bowler,Chandigarh
+Abhishek Singh,Right hand Bat,Right arm Offbreak,20,Bowler,Chandigarh
+Akash Sudan,Left hand Bat,Right arm Medium,30,Bowler,Chandigarh
+Akshit Rana,Right hand Bat,,21,Bowler,Chandigarh
+Arjit Pannu,Right hand Bat,Legbreak,27,Bowler,Chandigarh
+Arjun Azad,Right hand Bat,Legbreak,22,Bowler,Chandigarh
+Shivam Bhambri,Right hand Bat,Legbreak,28,Bowler,Chandigarh
+Gaurav Puri,Right hand Bat,,32,Bowler,Chandigarh
+Karan Kaila,Left hand Bat,Slow Left arm Orthodox,29,Bowler,Chandigarh
+Vishu Kashyap,Right hand Bat,Right arm Offbreak,25,Bowler,Chandigarh
+Mandeep Singh,Right hand Bat,Right arm Medium fast,24,Bowler,Chandigarh
+Harpreet Singh,Left hand Bat,Right arm Medium,32,Batter,Chattisgarh
+Eknath Kerkar,Right hand Bat,,30,Wicketkeeper Batter,Chattisgarh
+Ajay Mandal,Left hand Bat,Slow Left arm Orthodox,27,Allrounder,Chattisgarh
+Shashank Singh,Right hand Bat,"Right arm Medium, Right arm Offbreak",31,Batting Allrounder,Chattisgarh
+Amandeep Khare,Right hand Bat,Right arm Medium,26,Allrounder,Chattisgarh
+Shubham Agarwal,Right hand Bat,Legbreak Googly,29,Allrounder,Chattisgarh
+Jivesh Butte,Right hand Bat,Right arm Offbreak,25,Allrounder,Chattisgarh
+Shashank Chandrakar,Right hand Bat,Right arm Medium,29,Allrounder,Chattisgarh
+Ashish Chouhan,Right hand Bat,Right arm Medium fast,24,Allrounder,Chattisgarh
+Sanjeet Desai,Right hand Bat,Legbreak Googly,25,Allrounder,Chattisgarh
+Gagandeep Singh,Left hand Bat,Slow Left arm Orthodox,26,Allrounder,Chattisgarh
+Sanidhya Hurkat,Right hand Bat,Right arm Offbreak,24,Allrounder,Chattisgarh
+Sourabh Majumdar,Right hand Bat,Right arm Medium fast,24,Allrounder,Chattisgarh
+Prashant Painkra,Right hand Bat,Right arm Medium fast,21,Allrounder,Chattisgarh
+Sumit Ruikar,Left hand Bat,Slow Left arm Orthodox,33,Allrounder,Chattisgarh
+Aayush Thakur,Right hand Bat,Right arm Medium fast,20,Allrounder,Chattisgarh
+Anuj Tiwary,Left hand Bat,Right arm Offbreak,26,Allrounder,Chattisgarh
+Yash Dhull,Right hand Bat,Right arm Offbreak,20,Top order Batter,Delhi
+Himmat Singh,Right hand Bat,Right arm Offbreak,26,Batter,Delhi
+Anuj Rawat,Left hand Bat,,23,Wicketkeeper Batter,Delhi
+Ayush Badoni,Right hand Bat,Right arm Offbreak,23,Batter,Delhi
+Kshitiz Sharma,Right hand Bat,Right arm Offbreak,33,Top order Batter,Delhi
+Lalit Yadav,Right hand Bat,Right arm Offbreak,26,Allrounder,Delhi
+Harshit Rana,Right hand Bat,Right arm Fast,21,Bowler,Delhi
+Navdeep Saini,Right hand Bat,Right arm Fast,30,Bowler,Delhi
+Ishant Sharma,Right hand Bat,Right arm Fast medium,35,Bowler,Delhi
+Hrithik Shokeen,Right hand Bat,Right arm Offbreak,23,Bowler,Delhi
+Suyash Sharma,Right hand Bat,Legbreak Googly,20,Bowler,Delhi
+Shivank Vashisht,Left hand Bat,Right arm Offbreak,28,Bowler,Delhi
+Mayank Yadav,Right hand Bat,Right arm Fast,21,Bowler,Delhi
+Priyansh Arya,Left hand Bat,Right arm Offbreak,22,Bowler,Delhi
+Dev Lakra,Right hand Bat,Right arm Medium,20,Bowler,Delhi
+Jonty Sidhu,Left hand Bat,Right arm Offbreak,25,Bowler,Delhi
+Lakshay Thareja,Right hand Bat,,26,Bowler,Delhi
+Vaibhav Sharma,Right hand Bat,Right arm Offbreak,31,Bowler,Delhi
+Pranshu Vijayran,Left hand Bat,Right arm Medium,27,Bowler,Delhi
+Deepraj Gaonkar,Right hand Bat,Right arm Medium,25,Middle order Batter,Goa
+Snehal Kauthankar,Right hand Bat,Right arm Offbreak,27,Top order Batter,Goa
+Krishnamurthy Siddharth,Right hand Bat,Right arm Medium,30,Batter,Goa
+Rahul Tripathi,Right hand Bat,Right arm Medium,32,Top order Batter,Goa
+Darshan Misal,Left hand Bat,Slow Left arm Orthodox,31,Allrounder,Goa
+Lakshay Garg,Right hand Bat,Right arm Medium,27,Bowling Allrounder,Goa
+Suyash Prabhudessai,Right hand Bat,Right arm Medium,25,Batting Allrounder,Goa
+Felix Alemao,Right hand Bat,Right arm Medium,28,Bowler,Goa
+Arjun Tendulkar,Left hand Bat,Left arm Medium fast,24,Bowler,Goa
+Kashyap Bakhale,Right hand Bat,Legbreak Googly,25,Bowler,Goa
+Ishaan Gadekar,Left hand Bat,Legbreak,26,Bowler,Goa
+Rajashekhar Harikant,Right hand Bat,,32,Bowler,Goa
+Mohit Redkar,Right hand Bat,Right arm Offbreak,23,Bowler,Goa
+Tunish Sawkar,Right hand Bat,Right arm Medium fast,25,Bowler,Goa
+Vikas Singh,Left hand Bat,Right arm Offbreak,23,Bowler,Goa
+Shubham Tari,Right hand Bat,Right arm Medium,22,Bowler,Goa
+Priyank Panchal,Right hand Bat,Right arm Medium,33y 182d,Opening Batter,Gujarat
+Aarya Desai,Left hand Bat,Right arm Offbreak,20y 188d,Opening Batter,Gujarat
+Saurav Chauhan,Left hand Bat,Right arm Offbreak,23y 134d,Top order Batter,Gujarat
+Kshitij Patel,Right hand Bat,Right arm Offbreak,25y 358d,Middle order Batter,Gujarat
+Ripal Patel,Right hand Bat,Right arm Medium fast,28y 10d,Middle order Batter,Gujarat
+Urvil Patel,Right hand Bat,,24y 356d,Wicketkeeper Batter,Gujarat
+Piyush Chawla,Left hand Bat,Legbreak,34y 288d,Bowling Allrounder,Gujarat
+Chintan Gaja,Right hand Bat,Right arm Medium,28y 329d,Bowler,Gujarat
+Arzan Nagwaswalla,Right hand Bat,Left arm Medium,25y 356d,Bowler,Gujarat
+Ravi Bishnoi,Right hand Bat,Legbreak Googly,23y 33d,Bowler,Gujarat
+Umang Kumar,Right hand Bat,Right arm Offbreak,22y 301d,Bowler,Gujarat
+Hardik Patel,Left hand Bat,Slow Left arm Orthodox,28y 153d,Bowler,Gujarat
+Shen Patel,Right hand Bat,Right arm Medium,20y 166d,Bowler,Gujarat
+Hemang Patel,Right hand Bat,Right arm Medium fast,24y 322d,Bowler,Gujarat
+Vishal Jayswal,Left hand Bat,Slow Left arm Orthodox,25y 189d,Bowler,Gujarat
+Himanshu Rana,Right hand Bat,Right arm Medium,25y 10d,Top order Batter,Haryana
+Ankit Kumar,Right hand Bat,Right arm Offbreak,25y 344d,Top order Batter,Haryana
+Dinesh Bana,Right hand Bat,Right arm Offbreak,18y 300d,Wicketkeeper Batter,Haryana
+Anshul Kamboj,Right hand Bat,Right arm Medium,22y 309d,Allrounder,Haryana
+Nishant Sindhu,Left hand Bat,Slow Left arm Orthodox,19y 185d,Allrounder,Haryana
+Sumit Kumar,Right hand Bat,Right arm Medium fast,27y 303d,Allrounder,Haryana
+Rahul Tewatia,Left hand Bat,Legbreak,30y 144d,Bowling Allrounder,Haryana
+Yuzvendra Chahal,Right hand Bat,Legbreak Googly,33y 80d,Bowler,Haryana
+Amit Mishra,Right hand Bat,Legbreak,40y 321d,Bowler,Haryana
+Harshal Patel,Right hand Bat,Right arm Medium,32y 322d,Bowler,Haryana
+Mohit Sharma,Right hand Bat,Right arm Medium,35y 23d,Bowler,Haryana
+Jayant Yadav,Right hand Bat,Right arm Offbreak,33y 262d,Bowler,Haryana
+Aman Kumar,Right hand Bat,Right arm Fast,23y 297d,Bowler,Haryana
+Sarvesh Rohilla,Right hand Bat,Right arm Offbreak,19y 309d,Bowler,Haryana
+Mayank Shandilya,Right hand Bat,Right arm Offbreak,19y 200d,Bowler,Haryana
+Yashu Sharma,Left hand Bat,Right arm Offbreak,25y 22d,Bowler,Haryana
+Ankush Bains,Right hand Bat,,27y 298d,Wicketkeeper Batter,Himachal Pradesh
+Prashant Chopra,Right hand Bat,Legbreak Googly,31y 3d,Opening Batter,Himachal Pradesh
+Ekant Sen,Right hand Bat,Right arm Medium,28y 111d,Middle order Batter,Himachal Pradesh
+Rishi Dhawan,Right hand Bat,Right arm Medium fast,33y 233d,Allrounder,Himachal Pradesh
+Vinay Galetiya,Right hand Bat,Right arm Medium,30y 304d,Bowling Allrounder,Himachal Pradesh
+Nikhil Gangta,Right hand Bat,Right arm Medium,31y 39d,Batting Allrounder,Himachal Pradesh
+Sumeet Verma,Right hand Bat,Right arm Offbreak,32y 326d,Batting Allrounder,Himachal Pradesh
+Akash Vasisht,Left hand Bat,Slow Left arm Orthodox,28y 297d,Allrounder,Himachal Pradesh
+Mayank Dagar,Right hand Bat,Slow Left arm Orthodox,26y 333d,Bowler,Himachal Pradesh
+Kanwar Abhinay,Right hand Bat,Right arm Fast medium,32y 116d,Bowler,Himachal Pradesh
+Vaibhav Arora,Right hand Bat,Right arm Fast medium,25y 300d,Bowler,Himachal Pradesh
+Arpit Guleria,Right hand Bat,Right arm Medium,26y 167d,Bowler,Himachal Pradesh
+Pankaj Jaswal,Right hand Bat,Right arm Medium,28y 20d,Bowler,Himachal Pradesh
+Ayush Jamwal,Right hand Bat,Slow Left arm Orthodox,24y 60d,Bowler,Himachal Pradesh
+Hritik Kalia,Right hand Bat,Left arm Medium fast,23y 266d,Bowler,Himachal Pradesh
+Mukul Negi,Right hand Bat,Right arm Offbreak,26y 12d,Bowler,Himachal Pradesh
+Nitin Sharma,Right hand Bat,Right arm Medium fast,27y 12d,Bowler,Himachal Pradesh
+Prashant Tomar,Right hand Bat,,23y 189d,Bowler,Himachal Pradesh
+Vipin Sharma,Right hand Bat,Right arm Medium fast,25y 136d,Bowler,Himachal Pradesh
+Tanmay Agarwal,Left hand Bat,Legbreak Googly,28y 157d,Opening Batter,Hyderabad (India)
+Rahul Buddhi,Left hand Bat,Right arm Offbreak,26y 17d,Middle order Batter,Hyderabad (India)
+Tilak Varma,Left hand Bat,Right arm Offbreak,20y 333d,Batting Allrounder,Hyderabad (India)
+Chama Milind,Left hand Bat,Left arm Medium,29y 33d,Bowler,Hyderabad (India)
+Rakshan Readdi,Right hand Bat,,23y 8d,Bowler,Hyderabad (India)
+Tanay Thyagarajan,Left hand Bat,Slow Left arm Orthodox,27y 326d,Bowler,Hyderabad (India)
+Aman Rao,Right hand Bat,,19y 127d,,Hyderabad (India)
+Anikethreddy,Right hand Bat,Slow Left arm Orthodox,22y 344d,,Hyderabad (India)
+Bhavesh Seth,Right hand Bat,,26y,,Hyderabad (India)
+Shaunak Kulkarni,Right hand Bat,Legbreak,22y 213d,,Hyderabad (India)
+Rahul Radesh,Left hand Bat,,20y 252d,,Hyderabad (India)
+Rahul Singh,Left hand Bat,Right arm Medium,28y 19d,,Hyderabad (India)
+Ravi Teja,Left hand Bat,Right arm Medium,28y 353d,,Hyderabad (India)
+Rohit Rayudu,Left hand Bat,Right arm Offbreak,29y 70d,,Hyderabad (India)
+Chandan Sahani,Right hand Bat,Right arm Medium,25y 251d,,Hyderabad (India)
+Elligaram Sanketh,Left hand Bat,Left arm Medium,23y 364d,,Hyderabad (India)
+Shubham Khajuria,Right hand Bat,Right arm Offbreak,28y 21d,Opening Batter,Jammu & Kashmir
+Abdul Samad,Right hand Bat,Legbreak,21y 341d,Batter,Jammu & Kashmir
+Shubham Pundir,Left hand Bat,Legbreak Googly,24y 353d,Middle order Batter,Jammu & Kashmir
+Qamran Iqbal,Right hand Bat,Legbreak,21y 352d,Opening Batter,Jammu & Kashmir
+Abid Mushtaq,Left hand Bat,Slow Left arm Orthodox,26y 260d,Allrounder,Jammu & Kashmir
+Vivrant Sharma,Left hand Bat,Legbreak Googly,23y 339d,Allrounder,Jammu & Kashmir
+Rasikh Salam,Right hand Bat,Right arm Medium,23y 182d,Bowler,Jammu & Kashmir
+Umran Malik,Right hand Bat,Right arm Fast,23y 316d,Bowler,Jammu & Kashmir
+Yudhvir Singh,Right hand Bat,Right arm Medium fast,26y 21d,Bowler,Jammu & Kashmir
+Auqib Nabi,Right hand Bat,Right arm Medium,26y 334d,Bowler,Jammu & Kashmir
+Fazil Rashid,Right hand Bat,,26y 297d,Bowler,Jammu & Kashmir
+Henan Nazir,Right hand Bat,Right arm Medium,26y 193d,Bowler,Jammu & Kashmir
+Lone Nasir,Right hand Bat,Right arm Medium fast,26y 29d,Bowler,Jammu & Kashmir
+Sahil Lotra,Right hand Bat,Right arm Offbreak,24y 341d,Bowler,Jammu & Kashmir
+Umar Nazir,Right hand Bat,Right arm Medium,29y 335d,Bowler,Jammu & Kashmir
+Virat Singh,Left hand Bat,Legbreak Googly,25y 299d,Top order Batter,Jharkhand
+Kumar Deobrat,Right hand Bat,Right arm Medium,30y 344d,Top order Batter,Jharkhand
+Pankaj Kumar,Right hand Bat,,23y 325d,Wicketkeeper Batter,Jharkhand
+Kumar Kushagra,Right hand Bat,,18y 345d,Wicketkeeper Batter,Jharkhand
+Saurabh Tiwary,Left hand Bat,,33y 277d,Top order Batter,Jharkhand
+Anukul Roy,Left hand Bat,Slow Left arm Orthodox,24y 307d,Allrounder,Jharkhand
+Shahbaz Nadeem,Right hand Bat,Slow Left arm Orthodox,34y 52d,Bowler,Jharkhand
+Bal Krishna,Right hand Bat,Right arm Medium fast,24y 296d,Bowler,Jharkhand
+Sushant Mishra,Left hand Bat,Left arm Medium fast,22y 284d,Bowler,Jharkhand
+Rahul Shukla,Right hand Bat,Right arm Medium,33y 36d,Bowler,Jharkhand
+Supriyo Chakraborty,Right hand Bat,Right arm Medium,28y 147d,Bowler,Jharkhand
+Vivek Kumar,Right hand Bat,Right arm Offbreak,25y 50d,Bowler,Jharkhand
+Aditya Singh,Left hand Bat,Right arm Offbreak,24y 343d,Bowler,Jharkhand
+Vikash Singh,Left hand Bat,Left arm Medium,29y 97d,Bowler,Jharkhand
+Vikash Vishal,Left hand Bat,,24y 239d,Bowler,Jharkhand
+Vinayak Vikram,Right hand Bat,Right arm Offbreak,25y 319d,Bowler,Jharkhand
+Mayank Agarwal,Right hand Bat,Right arm Offbreak,32y 230d,Batter,Karnataka
+LR Chethan,Right hand Bat,,23y 132d,Wicketkeeper Batter,Karnataka
+Devdutt Padikkal,Left hand Bat,Right arm Offbreak,23y 89d,Top order Batter,Karnataka
+Manish Pandey,Right hand Bat,Right arm Medium,34y 24d,Top order Batter,Karnataka
+Ravikumar Samarth,Right hand Bat,Right arm Offbreak,30y 255d,Opening Batter,Karnataka
+BR Sharath,Right hand Bat,,27y 6d,Wicketkeeper Batter,Karnataka
+KL Shrijith,Left hand Bat,Right arm Offbreak,27y 53d,Wicketkeeper Batter,Karnataka
+Manoj Bhandage,Left hand Bat,Right arm Medium fast,24y 364d,Allrounder,Karnataka
+Krishnappa Gowtham,Right hand Bat,Right arm Offbreak,34y 349d,Bowling Allrounder,Karnataka
+Shubhang Hegde,Left hand Bat,Slow Left arm Orthodox,22y 188d,Bowling Allrounder,Karnataka
+Abhinav Manohar,Right hand Bat,Legbreak Googly,29y 18d,Batting Allrounder,Karnataka
+Praveen Dubey,Right hand Bat,Legbreak Googly,30y 95d,Bowler,Karnataka
+Vidwath Kaverappa,Right hand Bat,Right arm Fast medium,24y 221d,Bowler,Karnataka
+Vasuki Koushik,Right hand Bat,Right arm Medium,31y 15d,Bowler,Karnataka
+Prasidh Krishna,Right hand Bat,Right arm Fast medium,27y 227d,Bowler,Karnataka
+Vijaykumar Vyshak,Right hand Bat,Right arm Medium,26y 246d,Bowler,Karnataka
+Sanju Samson,Right hand Bat,,28y 335d,Wicketkeeper Batter,Kerala
+Mohammed Azharuddeen,Right hand Bat,,29y 204d,Wicketkeeper Batter,Kerala
+Sachin Baby,Left hand Bat,Right arm Offbreak,34y 298d,Batter,Kerala
+Vishnu Vinod,Right hand Bat,,29y 314d,Wicketkeeper Batter,Kerala
+Abdul Basith,Right hand Bat,Right arm Offbreak,25y 3d,Allrounder,Kerala
+Shreyas Gopal,Right hand Bat,Legbreak,30y 38d,Allrounder,Kerala
+Jalaj Saxena,Right hand Bat,"Right arm Offbreak, Legbreak Googly",36y 301d,Allrounder,Kerala
+KM Asif,Right hand Bat,Right arm Medium,30y 80d,Bowler,Kerala
+Basil Thampi,Right hand Bat,Right arm Fast medium,30y 31d,Bowler,Kerala
+Rohan Kunnummal,Right hand Bat,Right arm Bowler,25y 155d,Bowler,Kerala
+M Ajinas,Right hand Bat,,26y 157d,Bowler,Kerala
+Sijomon Joseph,Left hand Bat,Slow Left arm Orthodox,26y 14d,Bowler,Kerala
+Unnikrishnan Manukrishnan,Left hand Bat,Left arm Medium,35y 8d,Bowler,Kerala
+Pathirikattu Midhun,Left hand Bat,Slow Left arm Orthodox,29y 168d,Bowler,Kerala
+Varun Nayanar,Right hand Bat,,20y 353d,Bowler,Kerala
+Salman Nizar,Left hand Bat,Right arm Offbreak,26y 104d,Bowler,Kerala
+Vaisakh Chandran,Right hand Bat,Right arm Offbreak,27y 134d,Bowler,Kerala
+Vinod Kumar,Right hand Bat,Right arm Medium,36y 73d,Bowler,Kerala
+Rajat Patidar,Right hand Bat,Right arm Offbreak,30y 131d,Top order Batter,Madhya Pradesh
+Shubham Sharma,Right hand Bat,Right arm Offbreak,29y 290d,Batting Allrounder,Madhya Pradesh
+Venkatesh Iyer,Left hand Bat,Right arm Medium,28y 289d,Allrounder,Madhya Pradesh
+Parth Sahani,Left hand Bat,Slow Left arm Orthodox,30y 215d,Allrounder,Madhya Pradesh
+Arshad Khan,Left hand Bat,Left arm Medium,25y 294d,Bowler,Madhya Pradesh
+Avesh Khan,Right hand Bat,Right arm Fast medium,26y 301d,Bowler,Madhya Pradesh
+Kumar Kartikeya,Right hand Bat,"Slow Left arm Orthodox, Left arm Wrist spin",25y 288d,Bowler,Madhya Pradesh
+Kulwant Khejroliya,Left hand Bat,Left arm Medium fast,31y 211d,Bowler,Madhya Pradesh
+Rahul Batham,Right hand Bat,Right arm Medium,25y 50d,Bowler,Madhya Pradesh
+Rishabh Chouhan,Right hand Bat,Slow Left arm Orthodox,24y 35d,Bowler,Madhya Pradesh
+Mihir Hirwani,Right hand Bat,Legbreak Googly,29y 149d,Bowler,Madhya Pradesh
+Saransh Jain,Left hand Bat,Right arm Offbreak,30y 193d,Bowler,Madhya Pradesh
+Ajay Rohera,Right hand Bat,,26y 128d,Bowler,Madhya Pradesh
+Sagar Solanki,Left hand Bat,Slow Left arm Orthodox,23y 282d,Bowler,Madhya Pradesh
+Rakesh Thakur,Right hand Bat,,32y 30d,Bowler,Madhya Pradesh
+Ankit Bawne,Right hand Bat,Right arm Offbreak,30y 291d,Middle order Batter,Maharashtra
+Ruturaj Gaikwad,Right hand Bat,Right arm Offbreak,26y 246d,Batter,Maharashtra
+Nikhil Naik,Right hand Bat,,28y 329d,Wicketkeeper Batter,Maharashtra
+Kedar Jadhav,Right hand Bat,Right arm Offbreak,38y 192d,Batting Allrounder,Maharashtra
+Rajvardhan Hangargekar,Right hand Bat,Right arm Fast medium,20y 328d,Bowling Allrounder,Maharashtra
+Arshin Kulkarni,Right hand Bat,Right arm Medium,18y 231d,Allrounder,Maharashtra
+Vicky Ostwal,Right hand Bat,Slow Left arm Orthodox,21y 33d,Bowler,Maharashtra
+Prashant Solanki,Right hand Bat,Legbreak,23y 224d,Bowler,Maharashtra
+Satyajeet Bachhav,Left hand Bat,Slow Left arm Orthodox,30y 310d,Bowler,Maharashtra
+Mandar Bhandari,Right hand Bat,,29y 111d,Bowler,Maharashtra
+Pradeep Dadhe,Right hand Bat,Right arm Medium,29y 21d,Bowler,Maharashtra
+Azim Kazi,Left hand Bat,Slow Left arm Orthodox,29y 355d,Bowler,Maharashtra
+Siddharth Mhatre,Left hand Bat,Right arm Offbreak,23y 36d,Bowler,Maharashtra
+Vijay Pawale,Right hand Bat,Right arm Medium fast,,Bowler,Maharashtra
+Dhanraj Shinde,Right hand Bat,,24y 25d,Bowler,Maharashtra
+Taranjitsingh Dhillon,Right hand Bat,Right arm Offbreak,31y 21d,Bowler,Maharashtra
+Langlonyamba Meitan Keishangbam,Right hand Bat,Legbreak,25y 308d,Captain,Manipur
+Al Bashid Muhammed,Right hand Bat,,25y 166d,Batter,Manipur
+Basir Rahman,Left hand Bat,Right arm Medium,30y 223d,Batter,Manipur
+Bikash Singh,Right hand Bat,Left arm Medium,30y 327d,Batter,Manipur
+Bidash Chingakham,Right hand Bat,Right arm Medium fast,22y 262d,Batter,Manipur
+N Johnson Singh,Right hand Bat,,24y,Batter,Manipur
+L Kishan Singha,Right hand Bat,Slow Left arm Orthodox,26y 291d,Batter,Manipur
+Bishworjit Konthoujam,Right hand Bat,Right arm Medium fast,27y 249d,Batter,Manipur
+Nitesh Sedai,Right hand Bat,Right arm Offbreak,25y 244d,Batter,Manipur
+Laishram Robertson,Right hand Bat,,28y 223d,Batter,Manipur
+Rex Rajkumar,Left hand Bat,Left arm Medium fast,23y 41d,Batter,Manipur
+Prafullomani Singh,Right hand Bat,,29y 223d,Batter,Manipur
+Lamabam Singh,Left hand Bat,Slow Left arm Orthodox,24y 244d,Batter,Manipur
+Kangabam Priyojit,Right hand Bat,Right arm Medium fast,28y 320d,Batter,Manipur
+Amom Singh,Right hand Bat,,26y 309d,Batter,Manipur
+MD Sultan Karim,Right hand Bat,Right arm Medium fast,28y 327d,Batter,Manipur
+Karnajit Yumnam,Right hand Bat,,25y 287d,Batter,Manipur
+Nakul Verma,Right hand Bat,Legbreak Googly,32y 165d,Wicketkeeper,Meghalaya
+Rajesh Bishnoi,Left hand Bat,Slow Left arm Orthodox,33y 244d,Bowling Allrounder,Meghalaya
+Anish Charak,Right hand Bat,Slow Left arm Orthodox,23y 160d,Allrounder,Meghalaya
+Akash Choudhary,Right hand Bat,Right arm Medium fast,23y 302d,Allrounder,Meghalaya
+Ram Gurung,Right hand Bat,Right arm Medium fast,25y 165d,Allrounder,Meghalaya
+Riboklang Hynniewta,Right hand Bat,Right arm Medium fast,26y 10d,Allrounder,Meghalaya
+Sanvert Kurkalang,Right hand Bat,Right arm Medium fast,31y 37d,Allrounder,Meghalaya
+Kilco Marak,Right hand Bat,Right arm Medium fast,31y 61d,Allrounder,Meghalaya
+Sylvester Mylliempdah,Right hand Bat,Right arm Offbreak,31y 10d,Allrounder,Meghalaya
+Arien Sangma,Left hand Bat,Right arm Medium fast,24y 237d,Allrounder,Meghalaya
+Junjun Sangma,Left hand Bat,,25y 104d,Batter,Meghalaya
+Chengkam Sangma,Right hand Bat,Right arm Medium,28y 351d,Allrounder,Meghalaya
+Larry Sangma,Right hand Bat,Right arm Medium fast,30y 356d,Allrounder,Meghalaya
+Amiangshu Sen,Right hand Bat,Right arm Medium,28y 303d,Allrounder,Meghalaya
+Mewada Shylla,Right hand Bat,Right arm Medium fast,23y 102d,Allrounder,Meghalaya
+KC Cariappa,Right hand Bat,Legbreak,29y 136d,Bowler,Mizoram
+Remruatdika Ralte,Right hand Bat,Right arm Medium fast,25y 21d,Bowler,Mizoram
+Lalhruai Ralte,Right hand Bat,Right arm Medium,31y 170d,Captain,Mizoram
+Jehu Anderson,Right hand Bat,,23y 288d,Player,Mizoram
+J Biakthanpuia,Right hand Bat,Right arm Offbreak,25y 273d,Player,Mizoram
+Agni Chopra,Left hand Bat,Right arm Offbreak,24y 296d,Player,Mizoram
+Rohan Chowdury,Right hand Bat,Right arm Offbreak,25y 249d,Player,Mizoram
+Gaurav Singh,Right hand Bat,,24y 108d,Player,Mizoram
+Mohit Jangra,Left hand Bat,Left arm Medium,23y 334d,Bowler,Mizoram
+G Lalbiakvela,Right hand Bat,Right arm Medium,35y 211d,Player,Mizoram
+Lalhriatrenga,Right hand Bat,Right arm Medium fast,23y 252d,Player,Mizoram
+Lalhruaizela,Right hand Bat,,26y 240d,Player,Mizoram
+F Lalmuanzuala,Right hand Bat,Legbreak,25y 7d,Bowler,Mizoram
+Joseph Lalthankhuma,Right hand Bat,Right arm Offbreak,22y 335d,Bowler,Mizoram
+Rosiamliana Ralte,Right hand Bat,Legbreak,35y 249d,Bowler,Mizoram
+TC Vanlalremruata,Right hand Bat,Slow Left arm Orthodox,23y 51d,Bowler,Mizoram
+Ajinkya Rahane,Right hand Bat,Right arm Medium,35y 122d,Captain,Mumbai
+Yashasvi Jaiswal,Left hand Bat,Legbreak,21y 282d,Opening Batter,Mumbai
+Sarfaraz Khan,Right hand Bat,Legbreak,25y 349d,Middle order Batter,Mumbai
+Angkrish Raghuvanshi,Right hand Bat,Slow Left arm Orthodox,19y 123d,Top order Batter,Mumbai
+Hardik Tamore,Right hand Bat,,25y 351d,Wicketkeeper Batter,Mumbai
+Shams Mulani,Left hand Bat,Slow Left arm Orthodox,26y 207d,Allrounder,Mumbai
+Shivam Dube,Left hand Bat,Right arm Medium,30y 102d,Allrounder,Mumbai
+Tanush Kotian,Right hand Bat,Right arm Offbreak,24y 355d,Bowling Allrounder,Mumbai
+Mohit Avasthi,Right hand Bat,Right arm Medium fast,30y 322d,Bowler,Mumbai
+Tushar Deshpande,Left hand Bat,Right arm Medium,28y 144d,Bowler,Mumbai
+Dhawal Kulkarni,Right hand Bat,Right arm Medium,34y 300d,Bowler,Mumbai
+Atharva Ankolekar,Left hand Bat,Slow Left arm Orthodox,23y 10d,Bowler,Mumbai
+Royston Dias,Left hand Bat,Left arm Medium,30y 249d,Bowler,Mumbai
+Sairaj Patil,Right hand Bat,Right arm Medium,26y 340d,Bowler,Mumbai
+Prasad Pawar,Right hand Bat,,28y 248d,Player,Mumbai
+Ajit Yadav,Left hand Bat,Slow Left arm Orthodox,21y 275d,Bowler,Mumbai
+Joshua Ozukum,Right hand Bat,Right arm Medium,23y 67d,Opening Batter,Nagaland
+Sumit Kumar,Right hand Bat,,27y 284d,Wicketkeeper Batter,Nagaland
+Hokaito Zhimomi,Right hand Bat,Left arm Medium,37y 16d,Top order Batter,Nagaland
+Rongsen Jonathan,Right hand Bat,,37y 6d,Batting Allrounder (c),Nagaland
+Imliwati Lemtur,Left hand Bat,Slow Left arm Orthodox,31y 289d,Bowling Allrounder,Nagaland
+Chopise Hopongkyu,Right hand Bat,Right arm Medium,22y 294d,Bowler,Nagaland
+RS Jaganath Sinivas,Left hand Bat,Right arm Medium fast,24y 348d,Bowler,Nagaland
+Tahmeed Rahman,Right hand Bat,Right arm Offbreak,25y 14d,Bowler,Nagaland
+Sepichem Jingru,Left hand Bat,Left arm Medium fast,24y 347d,Bowler,Nagaland
+Khrievitso Kense,Right hand Bat,Legbreak,19y 218d,Bowler,Nagaland
+Moakumzuk Tzudir,Right hand Bat,Right arm Medium,27y 359d,Bowler,Nagaland
+Nagaho Chishi,Right hand Bat,Right arm Medium,25y 332d,Bowler,Nagaland
+Oren Ngullie,Right hand Bat,,28y 294d,Player,Nagaland
+Sedezhalie Rupero,Right hand Bat,Right arm Offbreak,25y 329d,Player,Nagaland
+Karan Tewatiya,Right hand Bat,Right arm Medium fast,26y 334d,Bowler,Nagaland
+Subhranshu Senapati,Right hand Bat,Right arm Medium,26y 279d,Top order Batter,Odisha
+Govinda Poddar,Right hand Bat,Right arm Offbreak,32y 26d,Allrounder (c),Odisha
+Abhishek Yadav,Left hand Bat,,28y 119d,Allrounder,Odisha
+Kartik Biswal,Right hand Bat,Right arm Offbreak,26y 97d,Allrounder,Odisha
+Rajesh Dhuper,Right hand Bat,,23y 307d,Allrounder,Odisha
+Prabin Luha,Right hand Bat,,28y 147d,Allrounder,Odisha
+Rakesh Pattnaik,Right hand Bat,Right arm Offbreak,31y 97d,Allrounder,Odisha
+Sandeep Pattnaik,Right hand Bat,Right arm Offbreak,25y 141d,Allrounder,Odisha
+Debabrata Pradhan,Right hand Bat,Right arm Medium,26y 360d,Allrounder,Odisha
+Prayash Singh,Right hand Bat,Right arm Medium,29y 245d,Allrounder,Odisha
+Harshit Rathod,Right hand Bat,Slow Left arm Orthodox,25y 63d,Allrounder,Odisha
+Sunil Roul,Right hand Bat,Right arm Medium fast,24y 356d,Allrounder,Odisha
+Soubhagya Rout,Right hand Bat,Right arm Medium fast,24y 151d,Allrounder,Odisha
+Swastik Samal,Right hand Bat,Legbreak Googly,23y 70d,Allrounder,Odisha
+Shantanu Mishra,Right hand Bat,Right arm Offbreak,29y 128d,Allrounder,Odisha
+Tarani Sa,Right hand Bat,,27y 21d,Allrounder,Odisha
+Arun Karthik,Right hand Bat,Legbreak Googly,37y 237d,Wicketkeeper Batter,Puducherry
+Paras Dogra,Right hand Bat,Legbreak,38y 325d,Batter,Puducherry
+Damodaran Rohit,Right hand Bat,Right arm Offbreak,31y 135d,Batter (c),Puducherry
+A Aravinddaraj,Right hand Bat,Right arm Medium,27y 123d,Batter,Puducherry
+Avinash Jadhav,Right hand Bat,,24y 114d,Batter,Puducherry
+Bhupender Chauhan,Right hand Bat,Right arm Medium fast,28y 345d,Batter,Puducherry
+Fabid Ahmed,Right hand Bat,Right arm Offbreak,28y 75d,Batter,Puducherry
+Gaurav Yadav,Right hand Bat,Right arm Medium,31y 344d,Batter,Puducherry
+Gurvinder Singh,Left hand Bat,Slow Left arm Orthodox,24y 146d,Allrounder,Puducherry
+Akash Kargave,Left hand Bat,Right arm Offbreak,,Allrounder,Puducherry
+Jayasundaram Karthikeyan,Right hand Bat,,30y 47d,Batter,Puducherry
+Marimuthu Vikneshwaran,Right hand Bat,Right arm Medium,31y 41d,Batter,Puducherry
+Krishna Pandey,Right hand Bat,Right arm Medium fast,29y 23d,Batter,Puducherry
+Parameeswaran Sivaraman,Right hand Bat,Right arm Medium fast,23y 231d,Batter,Puducherry
+Bharat Sharma,Right hand Bat,Right arm Offbreak,27y 329d,Batter,Puducherry
+Sagar Udeshi,Left hand Bat,Slow Left arm Orthodox,36y 361d,Allrounder,Puducherry
+Ravi Yadav,Left hand Bat,Left arm Medium fast,31y 286d,Allrounder,Puducherry
+Anmolpreet Singh,Right hand Bat,Right arm Offbreak,25y 199d,Batter,Punjab
+Gurkeerat Singh Mann,Right hand Bat,Right arm Offbreak,33y 106d,Middle order Batter,Punjab
+Naman Dhir,Right hand Bat,Right arm Offbreak,23y 286d,Top order Batter,Punjab
+Prabhsimran Singh,Right hand Bat,,23y 64d,Wicketkeeper Batter,Punjab
+Ramandeep Singh,Right hand Bat,Right arm Medium,26y 183d,Middle order Batter,Punjab
+Nehal Wadhera,Left hand Bat,Legbreak,23y 39d,Top order Batter,Punjab
+Mandeep Singh,Right hand Bat,Right arm Medium,31y 299d,Allrounder (c),Punjab
+Abhishek Sharma,Left hand Bat,Slow Left arm Orthodox,23y 39d,Allrounder,Punjab
+Sanvir Singh,Right hand Bat,Right arm Medium,27y 1d,Allrounder,Punjab
+Arshdeep Singh,Left hand Bat,Left arm Medium fast,24y 250d,Bowler,Punjab
+Baltej Singh,Right hand Bat,Right arm Medium,32y 343d,Bowler,Punjab
+Harpreet Brar,Left hand Bat,Slow Left arm Orthodox,28y 27d,Bowler,Punjab
+Siddarth Kaul,Right hand Bat,Right arm Medium,33y 147d,Bowler,Punjab
+Mayank Markande,Right hand Bat,Legbreak,25y 336d,Bowler,Punjab
+Prerit Dutta,Left hand Bat,Slow Left arm Orthodox,25y 21d,Bowler,Punjab
+Gaurav Chaudhary,Right hand Bat,Right arm Offbreak,24y 350d,Bowler,Punjab
+Jassinder Singh,Right hand Bat,Right arm Offbreak,26y 303d,Bowler,Punjab
+Pratham Singh,Left hand Bat,Right arm Offbreak,31y 36d,Opening Batter,Railways
+Vivek Singh,Left hand Bat,Right arm Medium,29y 339d,Opening Batter,Railways
+Upendra Yadav,Right hand Bat,Right arm Offbreak,26y 363d,Wicketkeeper Batter,Railways
+Ashutosh Sharma,Right hand Bat,,25y 21d,Batting Allrounder,Railways
+Yuvraj Singh,Right hand Bat,Right arm Medium fast,25y 45d,Bowling Allrounder,Railways
+Karn Sharma,Left hand Bat,Legbreak Googly,35y 348d,Bowler (c),Railways
+Shubham Chaubey,Right hand Bat,Right arm Offbreak,27y 356d,Bowler,Railways
+Shivam Chaudhary,Right hand Bat,Right arm Offbreak,26y 63d,Bowler,Railways
+Raj Choudhary,Left hand Bat,Slow Left arm Orthodox,27y 131d,Bowler,Railways
+Nishant Kushwah,Left hand Bat,Right arm Offbreak,28y 353d,Bowler,Railways
+Mohammad Saif,Left hand Bat,Slow Left arm Orthodox,27y 37d,Bowler,Railways
+Akshat Pandey,Left hand Bat,Right arm Medium,30y 201d,Bowler,Railways
+Akash Pandey,Left hand Bat,Slow Left arm Orthodox,24y 246d,Bowler,Railways
+Rahul Sharma,Left hand Bat,Left arm Medium,32y 280d,Bowler,Railways
+Susheel Kumar,Left hand Bat,Left arm Medium fast,26y 341d,Bowler,Railways
+Shubham Garhwal,Left hand Bat,Slow Left arm Orthodox,28y 152d,Batter,Rajasthan
+Kunal Singh Rathore,Left hand Bat,,21y 4d,Wicketkeeper Batter,Rajasthan
+Abhijeet Tomar,Right hand Bat,Right arm Offbreak,28y 213d,Opening Batter,Rajasthan
+Deepak Hooda,Right hand Bat,Right arm Offbreak,28y 177d,Allrounder (c),Rajasthan
+Mahipal Lomror,Left hand Bat,Slow Left arm Orthodox,23y 331d,Allrounder,Rajasthan
+Manav Suthar,Left hand Bat,Slow Left arm Orthodox,21y 71d,Bowling Allrounder,Rajasthan
+Khaleel Ahmed,Right hand Bat,Left arm Fast medium,25y 312d,Bowler,Rajasthan
+Arafat Khan,Right hand Bat,Right arm Medium,26y 290d,Bowler,Rajasthan
+Rahul Chahar,Right hand Bat,Legbreak Googly,24y 70d,Bowler,Rajasthan
+Deepak Chahar,Right hand Bat,Right arm Medium,31y 67d,Bowler,Rajasthan
+Aniket Choudhary,Right hand Bat,Left arm Medium,33y 258d,Bowler,Rajasthan
+Mukul Choudhary,Right hand Bat,,19y 68d,Bowler,Rajasthan
+Aditya Garhwal,Right hand Bat,Legbreak Googly,27y 181d,Bowler,Rajasthan
+Arjit Gupta,Right hand Bat,Right arm Medium,34y 31d,Bowler,Rajasthan
+Salman Khan,Right hand Bat,Right arm Offbreak,24y 291d,Bowler,Rajasthan
+Harvik Desai,Right hand Bat,,24y 7d,Wicketkeeper Batter,Saurashtra
+Sheldon Jackson,Right hand Bat,Right arm Offbreak,37y 14d,Wicketkeeper Batter,Saurashtra
+Tarang Gohel,Right hand Bat,Right arm Medium,24y 55d,Wicketkeeper Batter,Saurashtra
+Chirag Jani,Right hand Bat,Right arm Medium,33y 336d,Allrounder,Saurashtra
+Prerak Mankad,Right hand Bat,Right arm Medium,29y 171d,Allrounder,Saurashtra
+Samarth Vyas,Right hand Bat,Legbreak Googly,27y 317d,Allrounder,Saurashtra
+Jaydev Unadkat,Right hand Bat,Left arm Medium,31y 358d,Bowler (c),Saurashtra
+Yuvraj Chudasama,Left hand Bat,Legbreak,27y 322d,Bowler,Saurashtra
+Dharmendrasinh Jadeja,Left hand Bat,Slow Left arm Orthodox,33y 68d,Bowler,Saurashtra
+Aditya Jadeja,Left hand Bat,Left arm Medium,21y 207d,Bowler,Saurashtra
+Parth Bhut,Right hand Bat,Slow Left arm Orthodox,26y 68d,Bowler,Saurashtra
+Sammar Gajjar,Left hand Bat,Slow Left arm Orthodox,20y 58d,Bowler,Saurashtra
+Vishvaraj Jadeja,Right hand Bat,Right arm Medium,25y 84d,Bowler,Saurashtra
+Jay Gohil,Right hand Bat,Right arm Offbreak,22y 302d,Bowler,Saurashtra
+Pranav Karia,Right hand Bat,Right arm Offbreak,24y 304d,Bowler,Saurashtra
+Hetvik Kotak,Right hand Bat,Right arm Offbreak,21y 364d,Bowler,Saurashtra
+Kushang Patel,Right hand Bat,Right arm Medium,32y 28d,Bowler,Saurashtra
+Rajat Paliwal,Right hand Bat,Right arm Offbreak,31y 288d,Middle order Batter,Services
+Mohit Rathee,Right hand Bat,Legbreak,24y 268d,Allrounder,Services
+Mohit Ahlawat,Right hand Bat,,27y 287d,Allrounder (c),Services
+Varun Choudhary,Right hand Bat,Right arm Medium fast,29y 347d,Allrounder,Services
+Vineet Dhankhar,Right hand Bat,Legbreak,19y 158d,Allrounder,Services
+Vikas Hathwala,Left hand Bat,Left arm Medium,30y 32d,Allrounder,Services
+Lakhan Singh,Right hand Bat,Right arm Medium,25y 48d,Allrounder,Services
+Mohit Kumar,Right hand Bat,Right arm Medium fast,27y 13d,Allrounder,Services
+Nakul Sharma,Right hand Bat,Legbreak Googly,29y 350d,Allrounder,Services
+Pulkit Narang,Right hand Bat,Right arm Offbreak,29y 112d,Allrounder,Services
+Nitin Yadav,Right hand Bat,Right arm Medium,30y 322d,Allrounder,Services
+Poonam Poonia,Right hand Bat,Right arm Medium,28y 300d,Allrounder,Services
+Shubham Rohilla,Left hand Bat,Legbreak Googly,25y 212d,Allrounder,Services
+Arjun Sharma,Left hand Bat,Slow Left arm Orthodox,27y 140d,Allrounder,Services
+Nitin Tanwar,Right hand Bat,Right arm Offbreak,26y 364d,Allrounder,Services
+Vikas Yadav,Right hand Bat,Slow Left arm Orthodox,27y 80d,Allrounder,Services
+Ankur Malik,Right hand Bat,Legbreak,19y 323d,Allrounder,Sikkim
+Nilesh Lamichaney,Right hand Bat,Legbreak Googly,32y 20d,Allrounder (c),Sikkim
+Jyoti Bind,Right hand Bat,,35y 29d,Allrounder,Sikkim
+Sabin Chettri,Right hand Bat,Right arm Medium,29y 80d,Allrounder,Sikkim
+Pranesh Chettri,Right hand Bat,Right arm Medium,23y 209d,Allrounder,Sikkim
+Kishan Karki,Right hand Bat,Right arm Medium fast,31y 220d,Allrounder,Sikkim
+Lee Yong Lepcha,Right hand Bat,Right arm Offbreak,31y 321d,Allrounder,Sikkim
+Md Saptulla,Right hand Bat,Right arm Offbreak,25y 106d,Allrounder,Sikkim
+Sankar Praad,Right hand Bat,Right arm Offbreak,24y 82d,Allrounder,Sikkim
+Saurav Prasad,Right hand Bat,,23y 128d,Allrounder,Sikkim
+Kinara Rai,Right hand Bat,,25y 248d,Allrounder,Sikkim
+Pankaj Rawat,Right hand Bat,,30y 122d,Allrounder,Sikkim
+Jeetendra Sharma,Right hand Bat,Right arm Medium fast,26y 285d,Allrounder,Sikkim
+Galpo Sherpa,Left hand Bat,Legbreak,27y 244d,Allrounder,Sikkim
+Sumit Singh,Right hand Bat,Right arm Medium,36y 14d,Allrounder,Sikkim
+Palzor Tamang,Right hand Bat,Right arm Medium,30y 214d,Allrounder,Sikkim
+Ashish Thapa,Right hand Bat,Right arm Medium,29y 263d,Allrounder,Sikkim
+Guruswamy Ajitesh,Right hand Bat,,21y 7d,Batter,Tamil Nadu
+Hari Nishaanth,Left hand Bat,Right arm Offbreak,27y 48d,Opening Batter,Tamil Nadu
+Narayan Jagadeesan,Right hand Bat,,27y 283d,Wicketkeeper Batter,Tamil Nadu
+Sai Sudharsan,Left hand Bat,Legbreak,21y 353d,Top order Batter,Tamil Nadu
+M Shahrukh Khan,Right hand Bat,Right arm Offbreak,28y 129d,Batter,Tamil Nadu
+Washington Sundar,Left hand Bat,Right arm Offbreak,23y 363d,Bowling Allrounder (c),Tamil Nadu
+Baba Aparajith,Right hand Bat,Right arm Offbreak,29y 87d,Batting Allrounder,Tamil Nadu
+Sanjay Yadav,Left hand Bat,Slow Left arm Orthodox,28y 146d,Allrounder,Tamil Nadu
+Vijay Shankar,Right hand Bat,Right arm Medium,32y 250d,Allrounder,Tamil Nadu
+Mohammed Mohammed,Right hand Bat,Right arm Medium,31y 304d,Bowler,Tamil Nadu
+T Natarajan,Left hand Bat,Left arm Medium,32y 182d,Bowler,Tamil Nadu
+Sai Kishore,Left hand Bat,Slow Left arm Orthodox,26y 331d,Bowler,Tamil Nadu
+Sandeep Warrier,Right hand Bat,Right arm Medium,32y 182d,Bowler,Tamil Nadu
+Kuldeep Sen,Right hand Bat,Right arm Fast,26y 346d,Bowler,Tamil Nadu
+Varun Chakravarthy,Right hand Bat,Legbreak Googly,32y 35d,Bowler,Tamil Nadu
+Wriddhiman Saha,Right hand Bat,,38y 341d,Wicketkeeper Batter (c),Tripura
+Sudip Chatterjee,Left hand Bat,Legbreak Googly,31y 323d,Top order Batter,Tripura
+Bikramkumar Das,Left hand Bat,Right arm Offbreak,23y 319d,Opening Batter,Tripura
+Rajat Dey,Right hand Bat,Right arm Offbreak,26y 273d,Top order Batter,Tripura
+Ganesh Satish,Right hand Bat,,35y 199d,Top order Batter,Tripura
+Manisankar Murasingh,Left hand Bat,Right arm Medium,30y 272d,Allrounder (vc),Tripura
+Amit Ali,Right hand Bat,Legbreak,20y 339d,Bowling Allrounder,Tripura
+Parvez Sultan,Left hand Bat,Slow Left arm Orthodox,20y 74d,Bowler,Tripura
+Sankar Paul,Right hand Bat,Right arm Offbreak,22y 319d,Bowler,Tripura
+Ajay Sarkar,Right hand Bat,Right arm Medium,26y 204d,Bowler,Tripura
+Bikramjit Debnath,Right hand Bat,Right arm Medium fast,24y 278d,Bowler,Tripura
+Subham Ghosh,Right hand Bat,Right arm Offbreak,24y 358d,Bowler,Tripura
+Sanjay Majumder,Right hand Bat,Right arm Medium,35y 284d,Bowler,Tripura
+Chiranjit Paul,Left hand Bat,Slow Left arm Orthodox,27y 102d,Bowler,Tripura
+Viki Saha,Right hand Bat,Right arm Offbreak,25y 273d,Bowler,Tripura
+Abhijit Sarkar,Right hand Bat,Right arm Medium,26y 284d,Bowler,Tripura
+Nirupam Sen,Right hand Bat,Right arm Offbreak,33y 214d,Bowler,Tripura
+Nirupam Sen Chowdhary,Right hand Bat,Right arm Offbreak,32y 342d,Bowler,Tripura
+Danveer Singh,Right hand Bat,Right arm Medium fast,21y 34d,Bowler,Tripura
+Arkaprabha Sinha,Right hand Bat,,25y 63d,Bowler,Tripura
+Rinku Singh,Left hand Bat,Right arm Offbreak,25y 363d,Middle order Batter (c),Uttar Pradesh
+Abhishek Goswami,Right hand Bat,Right arm Offbreak,25y 338d,Opening Batter,Uttar Pradesh
+Swastik Chikara,Right hand Bat,Right arm Offbreak,18y 190d,Batter,Uttar Pradesh
+Dhruv Jurel,Right hand Bat,,22y 262d,Wicketkeeper Batter,Uttar Pradesh
+Madhav Kaushik,Right hand Bat,Right arm Offbreak,25y 280d,Opening Batter,Uttar Pradesh
+Nitish Rana,Left hand Bat,"Right arm Medium, Right arm Offbreak, Legbreak",29y 287d,Middle order Batter,Uttar Pradesh
+Sameer Rizvi,Right hand Bat,Right arm Offbreak,19y 308d,Batter,Uttar Pradesh
+Prince Yadav,Right hand Bat,Right arm Medium,25y 281d,Batting Allrounder,Uttar Pradesh
+Kartik Tyagi,Right hand Bat,Right arm Fast,22y 336d,Bowler,Uttar Pradesh
+Bhuvneshwar Kumar,Right hand Bat,Right arm Medium,33y 247d,Bowler,Uttar Pradesh
+Mohsin Khan,Left hand Bat,Left arm Medium fast,25y 87d,Bowler,Uttar Pradesh
+Shiva Singh,Right hand Bat,Slow Left arm Orthodox,23y 359d,Bowler,Uttar Pradesh
+Yash Dayal,Right hand Bat,Left arm Medium fast,25y 301d,Bowler,Uttar Pradesh
+Aaradhya Yadav,Right hand Bat,,19y 129d,Bowler,Uttar Pradesh
+Jasmer Dhankhar,Right hand Bat,,24y 359d,Bowler,Uttar Pradesh
+Prashant Veer,Right hand Bat,Slow Left arm Orthodox,17y 320d,Bowler,Uttar Pradesh
+Piyush Joshi,Right hand Bat,,27y 132d,Opening Batter,Uttarakhand
+Aditya Tare,Right hand Bat,,35y 333d,Wicketkeeper,Uttarakhand
+Yuvraj Chaudhary,Left hand Bat,Slow Left arm Orthodox,22y,Batting Allrounder,Uttarakhand
+Mayank Mishra,Left hand Bat,Slow Left arm Orthodox,32y 362d,Bowling Allrounder,Uttarakhand
+Dikshanshu Negi,Right hand Bat,Legbreak,33y 1d,Batting Allrounder,Uttarakhand
+Abhay Negi,Right hand Bat,Right arm Medium,30y 353d,Bowling Allrounder,Uttarakhand
+Akash Madhwal,Right hand Bat,Right arm Medium fast,29y 315d,Bowler (c),Uttarakhand
+Rajan Kumar,Left hand Bat,Left arm Medium fast,27y 90d,Bowler,Uttarakhand
+Swapnil Singh,Right hand Bat,Slow Left arm Orthodox,32y 257d,Bowler,Uttarakhand
+Agrim Tiwari,Right hand Bat,Left arm Medium,27y 175d,Bowler,Uttarakhand
+Avneesh Sudha,Right hand Bat,Right arm Offbreak,21y 320d,Bowler,Uttarakhand
+Prashant Bhati,Right hand Bat,Left arm Medium fast,23y 353d,Bowler,Uttarakhand
+Himanshu Bisht,Right hand Bat,Legbreak,26y 323d,Bowler,Uttarakhand
+Kunal Chandela,Right hand Bat,Right arm Medium,29y 91d,Bowler,Uttarakhand
+Ravinder Negi,Right hand Bat,Right arm Medium fast,21y 108d,Bowler,Uttarakhand
+Prateek Pandey,Left hand Bat,,21y 253d,Bowler,Uttarakhand
+Akhil Rawat,Right hand Bat,,22y 336d,Bowler,Uttarakhand
+Piyush Singh,Right hand Bat,Right arm Medium fast,27y 333d,Bowler,Uttarakhand
+Jitesh Sharma,Right hand Bat,,29y 354d,Wicketkeeper Batter (vc),Vidarbha
+Shubham Dubey,Left hand Bat,Right arm Offbreak,29y 45d,Middle order Batter,Vidarbha
+Karun Nair,Right hand Bat,Right arm Offbreak,31y 309d,Top order Batter,Vidarbha
+Dhruv Shorey,Right hand Bat,Right arm Offbreak,31y 128d,Top order Batter,Vidarbha
+Akshay Wadkar,Right hand Bat,,29y 94d,Wicketkeeper Batter,Vidarbha
+Atharva Taide,Left hand Bat,Slow Left arm Orthodox,23y 168d,Batting Allrounder (c),Vidarbha
+Harsh Dubey,Left hand Bat,Slow Left arm Orthodox,21y 80d,Bowling Allrounder,Vidarbha
+Aditya Sarwate,Right hand Bat,Slow Left arm Orthodox,33y 305d,Allrounder,Vidarbha
+Saurabh Dubey,Right hand Bat,Left arm Medium fast,25y 261d,Bowler,Vidarbha
+Akshay Karnewar,Left hand Bat,"Right arm Offbreak, Slow Left arm Orthodox",30y 364d,Bowler,Vidarbha
+Darshan Nalkande,Right hand Bat,Right arm Fast medium,25y 7d,Bowler,Vidarbha
+Nayan Chavan,Right hand Bat,Legbreak,23y 269d,Bowler,Vidarbha
+Lalit Yadav,Right hand Bat,Right arm Medium fast,27y 298d,Bowler,Vidarbha
+Mandar Mahale,Left hand Bat,Right arm Offbreak,22y 328d,Bowler,Vidarbha
+Dipesh Parwani,Left hand Bat,Left arm Medium fast,23y 270d,Bowler,Vidarbha
