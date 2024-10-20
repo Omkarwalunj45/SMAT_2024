@@ -950,6 +950,7 @@ if sidebar_option == "Player Profile":
                                   'Rajasthan', 'Saurashtra', 'Services', 'Sikkim', 'Tamil Nadu',
                                   'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'Vidarbha']
                 i=0
+                
                 for state in allowed_state:
                     temp_df = pdf[pdf['batsman'] == player_name]
                     # print(temp_df.match_id.unique())
