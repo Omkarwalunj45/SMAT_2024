@@ -754,7 +754,7 @@ if sidebar_option == "Player Profile":
                         result_df = pd.concat([result_df, temp_df], ignore_index=True)
                 
                 # Display the final result_df
-                # result_df = result_df.drop(columns=['matches_x', 'matches_y', 'batsman', 'debut_year', 'final_year', 'batting_team'])
+                result_df = result_df.drop(columns=['matches', 'batsman', 'debut_year', 'final_year', 'batting_team'])
                 result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
                 columns_to_convert = ['HUNDREDS', 'FIFTIES', 'THIRTIES', 'RUNS', 'HIGHEST SCORE']
                 
@@ -807,8 +807,7 @@ if sidebar_option == "Player Profile":
                         i = 1 + i
                     else:
                         result_df = pd.concat([result_df, temp_df], ignore_index=True)
-                    # result_df = result_df.drop(columns=['batsman', 'batting_team', 'debut_year', 'matches_x', 'matches_y', 'matches', 'batting_team'])
-                    
+                    result_df = result_df.drop(columns=['matches', 'batsman', 'debut_year', 'final_year', 'batting_team'])                    
                     # Convert specific columns to integers
                     # Round off the remaining float columns to 2 decimal places
                     float_cols = result_df.select_dtypes(include=['float']).columns
@@ -853,7 +852,7 @@ if sidebar_option == "Player Profile":
                 # Reindex the DataFrame with the new column order
                 temp_df = temp_df[new_order] 
                 result_df = pd.concat([result_df, temp_df], ignore_index=True)
-                # result_df = result_df.drop(columns=['batsman', 'batting_team', 'debut_year', 'matches_x', 'matches_y', 'final_year', 'batting_team'])
+               result_df = result_df.drop(columns=['matches', 'batsman', 'debut_year', 'final_year', 'batting_team'])
                 # Convert specific columns to integers
                 # Round off the remaining float columns to 2 decimal places
                 float_cols = result_df.select_dtypes(include=['float']).columns
@@ -874,71 +873,7 @@ if sidebar_option == "Player Profile":
                 st.markdown(f"### **Inningwise Performance**")
                 st.table(result_df.reset_index(drop=True).style.set_table_attributes("style='font-weight: bold;'"))
                 
-                # # Creating a DataFrame to display venues and their corresponding states
-                # pdf['state'] = pdf['venue'].map(venue_state_map).fillna('Unknown')
-                # allowed_states = ['Andhra', 'Arunachal Pradesh', 'Assam', 'Baroda', 'Bengal',
-                #                   'Bihar', 'Chandigarh', 'Chattisgarh', 'Delhi', 'Goa', 'Gujarat',
-                #                   'Haryana', 'Himachal Pradesh', 'Hyderabad (India)',
-                #                   'Jammu & Kashmir', 'Jharkhand', 'Karnataka', 'Kerala',
-                #                   'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram',
-                #                   'Mumbai', 'Nagaland', 'Odisha', 'Puducherry', 'Punjab', 'Railways',
-                #                   'Rajasthan', 'Saurashtra', 'Services', 'Sikkim', 'Tamil Nadu',
-                #                   'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'Vidarbha']
-                # i = 0
                 
-                # # Iterate over allowed states for batting analysis
-                # for state in allowed_states:
-                #     temp_df = pdf[pdf['batsman'] == player_name]  # Filter data for the selected batsman
-                
-                #     # Filter for the specific state
-                #     temp_df = temp_df[temp_df['bowling_team'] == state]
-                
-                #     # Apply the cumulative function (bcum)
-                #     temp_df = cumulator(temp_df)
-                
-                #     # If the DataFrame is empty after applying `bcum`, skip this iteration
-                #     if temp_df.empty:
-                #         continue
-                
-                #     # Add the state column with the current state's value
-                #     temp_df['opponent'] = state.upper()
-                
-                #     # Reorder columns to make 'state' the first column
-                #     cols = temp_df.columns.tolist()
-                #     new_order = ['opponent'] + [col for col in cols if col != 'opponent']
-                #     temp_df = temp_df[new_order]
-                
-                #     # Concatenate results into result_df
-                #     if i == 0:
-                #         result_df = temp_df
-                #         i += 1
-                #     else:
-                #         result_df = pd.concat([result_df, temp_df], ignore_index=True)
-                
-                # # Display the final result_df
-                # result_df = result_df.drop(columns=['matches_x', 'matches_y', 'batsman', 'debut_year', 'final_year', 'batting_team'])
-                # result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
-                # columns_to_convert = ['HUNDREDS', 'FIFTIES', 'THIRTIES', 'RUNS', 'HIGHEST SCORE']
-                
-                # # Fill NaN values with 0
-                # result_df[columns_to_convert] = result_df[columns_to_convert].fillna(0)
-                
-                # # Convert the specified columns to integer type
-                # result_df[columns_to_convert] = result_df[columns_to_convert].astype(int)
-                # result_df = round_up_floats(result_df)
-                # cols = result_df.columns.tolist()
-                
-                # # Specify the desired order with 'year' first
-                # new_order = ['OPPONENT', 'MATCHES'] + [col for col in cols if col not in ['MATCHES', 'OPPONENT']]
-                
-                # # Reindex the DataFrame with the new column order
-                # result_df = result_df[new_order]
-                
-                # st.markdown("### Opponentwise Performance")
-                # st.table(result_df.style.set_table_attributes("style='font-weight: bold;'"))
-                
-                # # Continue with the rest of the analysis for seasons and innings similar to how you have structured it.
-
                 # # Creating a DataFrame to display venues and their corresponding countries
                 pdf['state'] = pdf['venue'].map(venue_state_map).fillna('Unknown')
                 allowed_state = ['Andhra', 'Arunachal Pradesh', 'Assam', 'Baroda', 'Bengal',
@@ -977,7 +912,7 @@ if sidebar_option == "Player Profile":
                         result_df = pd.concat([result_df, temp_df],ignore_index=True)
                         
                 
-                    # result_df = result_df.drop(columns=['batsman', 'batting_team','debut_year','final_year','matches_x','matches_y','batting_team'])
+                    result_df = result_df.drop(columns=['matches', 'batsman', 'debut_year', 'final_year', 'batting_team'])
                     # Round off the remaining float columns to 2 decimal places
                     float_cols = result_df.select_dtypes(include=['float']).columns
                     result_df[float_cols] = result_df[float_cols].round(2)
