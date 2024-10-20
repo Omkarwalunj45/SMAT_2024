@@ -7,9 +7,8 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title='Syed Mushtaq Ali Trophy Performance Analysis Portal', layout='wide')
 st.title('Syed Mushtaq Ali Trophy Performance Analysis Portal')
 csv_files = [
-    "Dataset/SMAT2.csv",
-    "Dataset/SMAT1_part1.csv",
-    "Dataset/SMAT1_part2.csv"
+    "Dataset/SMAT1_updated_final1.csv",
+    "Dataset/SMAT1_updated_final2.csv"
 ]
 dataframes = [pd.read_csv(csv_file, low_memory=False) for csv_file in csv_files]
 pdf = pd.concat(dataframes, ignore_index=True)
