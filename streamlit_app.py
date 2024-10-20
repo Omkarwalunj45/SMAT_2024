@@ -941,7 +941,7 @@ if sidebar_option == "Player Profile":
 
                 # # Creating a DataFrame to display venues and their corresponding countries
                 pdf['state'] = pdf['venue'].map(venue_state_map).fillna('Unknown')
-                allowed_states = ['Andhra', 'Arunachal Pradesh', 'Assam', 'Baroda', 'Bengal',
+                allowed_state = ['Andhra', 'Arunachal Pradesh', 'Assam', 'Baroda', 'Bengal',
                                   'Bihar', 'Chandigarh', 'Chattisgarh', 'Delhi', 'Goa', 'Gujarat',
                                   'Haryana', 'Himachal Pradesh', 'Hyderabad (India)',
                                   'Jammu & Kashmir', 'Jharkhand', 'Karnataka', 'Kerala',
