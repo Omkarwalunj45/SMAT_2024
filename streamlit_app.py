@@ -682,7 +682,7 @@ if sidebar_option == "Player Profile":
                     
                    # Convert the specified columns to integer type
                 player_stats[columns_to_convert] = player_stats[columns_to_convert].astype(int)
-                player_stats=player_stats.drop(columns={'UNNAMED:0'})
+                # player_stats=player_stats.drop(columns={'UNNAMED:0'})
                 st.table(player_stats.style.set_table_attributes("style='font-weight: bold;'"))                
                 # Initializing an empty DataFrame for results and a counter
                 result_df = pd.DataFrame()
