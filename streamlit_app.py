@@ -995,7 +995,7 @@ if sidebar_option == "Player Profile":
                     result_df = result_df[new_order]
                 # result_df = result_df.loc[:, ~result_df.columns.duplicated()]
                     result_df = result_df.drop(columns=['MATCHES'])
-                st.markdown(f"### **In Host Country**")
+                st.markdown(f"### **In Host State**")
                 st.table(result_df.style.set_table_attributes("style='font-weight: bold;'"))
                   
     
