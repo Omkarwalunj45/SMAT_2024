@@ -754,7 +754,7 @@ if sidebar_option == "Player Profile":
                         result_df = pd.concat([result_df, temp_df], ignore_index=True)
                 
                 # Display the final result_df
-                result_df = result_df.drop(columns=['matches_x', 'matches_y', 'batsman', 'debut_year', 'final_year', 'batting_team'])
+                # result_df = result_df.drop(columns=['matches_x', 'matches_y', 'batsman', 'debut_year', 'final_year', 'batting_team'])
                 result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
                 columns_to_convert = ['HUNDREDS', 'FIFTIES', 'THIRTIES', 'RUNS', 'HIGHEST SCORE']
                 
@@ -807,7 +807,7 @@ if sidebar_option == "Player Profile":
                         i = 1 + i
                     else:
                         result_df = pd.concat([result_df, temp_df], ignore_index=True)
-                    result_df = result_df.drop(columns=['batsman', 'batting_team', 'debut_year', 'matches_x', 'matches_y', 'matches', 'batting_team'])
+                    # result_df = result_df.drop(columns=['batsman', 'batting_team', 'debut_year', 'matches_x', 'matches_y', 'matches', 'batting_team'])
                     
                     # Convert specific columns to integers
                     # Round off the remaining float columns to 2 decimal places
@@ -853,7 +853,7 @@ if sidebar_option == "Player Profile":
                 # Reindex the DataFrame with the new column order
                 temp_df = temp_df[new_order] 
                 result_df = pd.concat([result_df, temp_df], ignore_index=True)
-                result_df = result_df.drop(columns=['batsman', 'batting_team', 'debut_year', 'matches_x', 'matches_y', 'final_year', 'batting_team'])
+                # result_df = result_df.drop(columns=['batsman', 'batting_team', 'debut_year', 'matches_x', 'matches_y', 'final_year', 'batting_team'])
                 # Convert specific columns to integers
                 # Round off the remaining float columns to 2 decimal places
                 float_cols = result_df.select_dtypes(include=['float']).columns
