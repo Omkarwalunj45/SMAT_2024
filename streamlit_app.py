@@ -623,15 +623,28 @@ if sidebar_option == "Player Profile":
             else:
                 st.markdown("<span style='font-size: 20px; font-weight: bold;'>N/A</span>", unsafe_allow_html=True)
 
+        # with col5:
+        #     st.markdown("BOWLING STYLE:")
+        #     if p_info is not None:
+        #         if p_info['Bowling Style'] == 'N/A':
+        #             st.markdown("<span style='font-size: 20px; font-weight: bold;'>NONE</span>", unsafe_allow_html=True)
+        #         else:
+        #             st.markdown(f"<span style='font-size: 20px; font-weight: bold;'>{p_info['bowling_style'].upper()}</span>", unsafe_allow_html=True)
+        #     else:
+        #         st.markdown("<span style='font-size: 20px; font-weight: bold;'>N/A</span>", unsafe_allow_html=True)
         with col5:
             st.markdown("BOWLING STYLE:")
             if p_info is not None:
-                if p_info['Bowling Style'] == 'N/A':
+                # Using .get() to safely access the 'Bowling Style' key
+                bowling_style = p_info.get('Bowling Style', 'N/A')  # Default to 'N/A' if key doesn't exist
+        
+                if bowling_style == 'N/A':
                     st.markdown("<span style='font-size: 20px; font-weight: bold;'>NONE</span>", unsafe_allow_html=True)
                 else:
-                    st.markdown(f"<span style='font-size: 20px; font-weight: bold;'>{p_info['bowling_style'].upper()}</span>", unsafe_allow_html=True)
+                    st.markdown(f"<span style='font-size: 20px; font-weight: bold;'>{bowling_style.upper()}</span>", unsafe_allow_html=True)
             else:
                 st.markdown("<span style='font-size: 20px; font-weight: bold;'>N/A</span>", unsafe_allow_html=True)
+
 
         with col6:
             st.markdown("PLAYING ROLE:")
