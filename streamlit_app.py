@@ -15,6 +15,7 @@ dataframes = [pd.read_csv(csv_file, low_memory=False) for csv_file in csv_files]
 pdf = pd.concat(dataframes, ignore_index=True)
 cols_conv=['season','match_id']
 pdf[cols_conv] = pdf[cols_conv].astype(str)
+pdf=pdf.rename(columns={'innings':'inning'})
 bpdf=pdf
 idf = pd.read_csv("Dataset/lifesaver_bat_smat.csv",low_memory=False)
 info_df=pd.read_csv("Dataset/cricket_players_data.csv",low_memory=False)
@@ -23,7 +24,6 @@ info_df=info_df.rename(columns={'player':'Player_name'})
 pdf[['noballs', 'wides','byes','legbyes','penalty']] = pdf[['noballs', 'wides','byes','legbyes','penalty']].fillna(0).astype(int)
 pdf['valid_ball'] = pdf.apply(lambda x: 1 if (x['wides'] == 0 and x['noballs'] == 0) else 0, axis=1)
 idf=idf[idf['final_year']=='2023/24']
-
 def show_match_details(match_id):
     print("Hello")
     match_id = str(match_id)
