@@ -13,6 +13,8 @@ csv_files = [
 dataframes = [pd.read_csv(csv_file, low_memory=False) for csv_file in csv_files]
 pdf = pd.concat(dataframes)
 pdf['batsman'] = pdf['batsman'].replace({'AR Pandey': 'Akshat Pandey'})
+pdf['non_striker'] = pdf['non_striker'].replace({'AR Pandey': 'Akshat Pandey'})
+pdf['bowler'] = pdf['bowler'].replace({'AR Pandey': 'Akshat Pandey'})
 cols_conv=['season','match_id']
 pdf[cols_conv] = pdf[cols_conv].astype(str)
 pdf=pdf.rename(columns={'innings':'inning'})
@@ -1160,7 +1162,7 @@ if sidebar_option == "Player Profile":
                                     else:
                                         result_df = pd.concat([result_df, temp_df], ignore_index=True)
                         # Display the final result_df
-                        # result_df = result_df.drop(columns=['bowler'])
+                        result_df = result_df.drop(columns=['bowler','debut_year','final_year'])
                         result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
                         columns_to_convert = ['RUNS','THREE WICKET HAULS', 'MAIDEN OVERS']
             
@@ -1200,7 +1202,7 @@ if sidebar_option == "Player Profile":
                                 else:
                                         result_df = pd.concat([result_df, temp_df], ignore_index=True)  # Append subsequent data
                                           
-                        # result_df = result_df.drop(columns=['bowler'])
+                        result_df = result_df.drop(columns=['bowler','debut_year','final_year'])
                         result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
                         columns_to_convert = ['THREE WICKET HAULS', 'MAIDEN OVERS']
     
@@ -1256,7 +1258,7 @@ if sidebar_option == "Player Profile":
                         result_df = pd.concat([result_df, temp_df], ignore_index=True)
             
                         # Drop unnecessary columns
-                        result_df = result_df.drop(columns=['bowler'])
+                        result_df = result_df.drop(columns=['bowler','debut_year','final_year'])
                         result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
                         columns_to_convert = ['THREE WICKET HAULS', 'MAIDEN OVERS']
     
