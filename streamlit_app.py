@@ -278,22 +278,28 @@ def show_innings_scorecard(inning_data, title):
     batting_data['surname'] = batting_data['batsman'].apply(get_surname)
     surname_counts = batting_data['surname'].value_counts()
     
-    # Filter out batsmen who satisfy all the conditions
+    # Get the first initial of each batsman
+    batting_data['initial'] = batting_data['batsman'].apply(lambda x: x[0])  # Assuming first letter is the initial
+    
+    # Filter out batsmen who satisfy the new conditions
     def should_remove_batsman(row):
         # Condition 1: Runs and Balls faced are both 0
         if row['batsman_runs'] == 0 and row['valid_ball'] == 0:
-            # Condition 2: Dismissal Kind is not 'run out'
-            if row['Dismissal Kind'] != 'run out':
-                # Condition 3: Surname appears more than once in the batting list
-                # if surname_counts[row['surname']] > 1:
-                  return True
+            # Condition 2: Surname appears more than once in the batting list
+            if surname_counts[row['surname']] > 1:
+                # Find other players with the same surname
+                same_surname = batting_data[batting_data['surname'] == row['surname']]
+                # Check if any other player with the same surname has the same initial
+                for _, other_row in same_surname.iterrows():
+                    if other_row['initial'] == row['initial']:
+                        return True
         return False
     
     # Remove batsmen who meet all the conditions
     batting_data = batting_data[~batting_data.apply(should_remove_batsman, axis=1)]
     
-    # Drop the 'surname' column since it's no longer needed
-    batting_data = batting_data.drop(columns='surname')
+    # Drop the 'surname' and 'initial' columns since they're no longer needed
+    batting_data = batting_data.drop(columns=['surname', 'initial'])
     
     # Rename columns for the batting scorecard
     batting_data.columns = ['Batsman', 'R', 'B', '4s', '6s', 'Wicket', 'Dismissal Kind', 'SR']
