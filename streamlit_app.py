@@ -19,6 +19,10 @@ bpdf=pdf
 cols_conv=['season','match_id']
 bpdf[cols_conv] = bpdf[cols_conv].astype(str)
 idf = pd.read_csv("Dataset/lifesaver_bat_smat.csv",low_memory=False)
+name_mapping = {'AR Pandey': 'Akshat Pandey'}
+
+# Apply the mapping using .map()
+idf['batsman'] = idf['batsman'].map(name_mapping)
 
 
 info_df=pd.read_csv("Dataset/cricket_players_data.csv",low_memory=False)
