@@ -2113,7 +2113,7 @@ elif sidebar_option == "Strength vs Weakness":
             
             # Convert the relevant columns to integers and fill NaN values
             columns_to_convert = ['WKTS']
-            result_df[columns_to_convert] = result_df[columns_to_convert].fillna(0).astype(int)
+            # result_df[columns_to_convert] = result_df[columns_to_convert].fillna(0).astype(int)
             result_df = round_up_floats(result_df)
             cols = result_df.columns.tolist()
               
@@ -2272,7 +2272,8 @@ elif sidebar_option == "Strength vs Weakness":
             strong_against = []
             weak_against = []
             
-            # Check each phase's stats against the thresholds
+            # Check each phase's stats against the thresholdss
+            
             for index, row in result_df.iterrows():
                 strong_count = 0
                 weak_count = 0
