@@ -895,18 +895,18 @@ if sidebar_option == "Player Profile":
                 columns_to_convert = ['HUNDREDS', 'FIFTIES', 'THIRTIES', 'RUNS', 'HIGHEST SCORE']
                 
                 # Fill NaN values with 0
-                result_df[columns_to_convert] = result_df[columns_to_convert].fillna(0)
+                # result_df[columns_to_convert] = result_df[columns_to_convert].fillna(0)
                 
                 # Convert the specified columns to integer type
-                result_df[columns_to_convert] = result_df[columns_to_convert].astype(int)
+                # result_df[columns_to_convert] = result_df[columns_to_convert].astype(int)
                 result_df = round_up_floats(result_df)
                 cols = result_df.columns.tolist()
                 
                 # Specify the desired order with 'year' first
-                new_order = ['OPPONENT', 'MATCHES'] + [col for col in cols if col not in ['MATCHES', 'OPPONENT']]
+                # new_order = ['OPPONENT', 'MATCHES'] + [col for col in cols if col not in ['MATCHES', 'OPPONENT']]
                 
                 # Reindex the DataFrame with the new column order
-                result_df = result_df[new_order]
+                # result_df = result_df[new_order]
                 
                 st.markdown("### Opponentwise Performance")
                 st.table(result_df.style.set_table_attributes("style='font-weight: bold;'"))
