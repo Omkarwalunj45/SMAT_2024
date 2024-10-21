@@ -24,11 +24,11 @@ idf = pd.read_csv("Dataset/lifesaver_bat_smat.csv",low_memory=False)
 idf['batsman'] = idf['batsman'].replace({'AR Pandey': 'Akshat Pandey'})
 info_df=pd.read_csv("Dataset/cricket_players_data.csv",low_memory=False)
 bidf=pd.read_csv("Dataset/lifesaver_bowl_smat.csv",low_memory=False)
-# bidf['bowler'] = bidf['bowler'].replace({'AR Pandey': 'Akshat Pandey'})
 info_df=info_df.rename(columns={'player':'Player_name'})
 pdf[['noballs', 'wides','byes','legbyes','penalty']] = pdf[['noballs', 'wides','byes','legbyes','penalty']].fillna(0).astype(int)
 pdf['valid_ball'] = pdf.apply(lambda x: 1 if (x['wides'] == 0 and x['noballs'] == 0) else 0, axis=1)
 idf=idf[idf['final_year']=='2023/24']
+bidf['bowler'] = bidf['bowler'].replace({'AR Pandey': 'Akshat Pandey'})
 def show_match_details(match_id):
     print("Hello")
     match_id = str(match_id)
