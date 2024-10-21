@@ -2106,20 +2106,20 @@ elif sidebar_option == "Strength vs Weakness":
                 result_df = pd.concat([result_df, temp_df], ignore_index=True)
         
             # Drop unwanted columns from the result DataFrame
-            # result_df = result_df.drop(columns=['bowler'])
+            result_df = result_df.drop(columns=['bowler','final_year','debut_year'])
         
             # Standardize column names
             result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
             
             # Convert the relevant columns to integers and fill NaN values
             columns_to_convert = ['WKTS']
-            # result_df[columns_to_convert] = result_df[columns_to_convert].fillna(0).astype(int)
+            result_df[columns_to_convert] = result_df[columns_to_convert].fillna(0).astype(int)
             result_df = round_up_floats(result_df)
             cols = result_df.columns.tolist()
               
               # Specify the desired order with 'phase' first
             new_order = ['BATTING STYLE'] + [col for col in cols if col not in 'BATTING STYLE']
-            # result_df = result_df[new_order]
+            result_df = result_df[new_order]
         
             # Display the final table
             st.markdown("### Cumulative Bowling Performance Against Batting Styles")
@@ -2250,7 +2250,7 @@ elif sidebar_option == "Strength vs Weakness":
                 result_df = pd.concat([result_df, temp_df], ignore_index=True)
             
             # Drop unwanted columns from the result DataFrame
-            # result_df = result_df.drop(columns=['bowler'])
+            result_df = result_df.drop(columns=['bowler','final_year','debut_year'])
             
             # Standardize column names
             result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
