@@ -285,8 +285,8 @@ def show_innings_scorecard(inning_data, title):
             # Condition 2: Dismissal Kind is not 'run out'
             if row['Dismissal Kind'] != 'run out':
                 # Condition 3: Surname appears more than once in the batting list
-                if surname_counts[row['surname']] > 1:
-                    return True
+                # if surname_counts[row['surname']] > 1:
+                  return True
         return False
     
     # Remove batsmen who meet all the conditions
