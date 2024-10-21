@@ -84,112 +84,6 @@ def show_match_details(match_id):
         st.write("No match details found.")
 
 def show_innings_scorecard(inning_data, title):
-    # # Batting scorecard
-    # st.write("Batting")
-    # batting_order = []
-    
-    # # Iterate through the innings data to establish the batting order
-    # for i, row in inning_data.iterrows():
-    #     batsman = row['batsman']
-    #     non_striker = row['non_striker']
-        
-    #     if batsman not in batting_order:
-    #         batting_order.append(batsman)
-    #     if non_striker not in batting_order:
-    #         batting_order.append(non_striker)
-    
-    # # Calculate total extras
-    # total_extras = inning_data['extras'].sum()
-    
-    # # Aggregate batting data for runs, balls faced, fours, and sixes
-    # batting_data = inning_data.groupby(['batsman']).agg({
-    #     'batsman_runs': 'sum',
-    #     'valid_ball': 'sum',
-    #     'is_four': 'sum',
-    #     'is_six': 'sum'
-    # }).reset_index()
-    
-    # # Initialize columns for Wicket and Dismissal Kind
-    # batting_data['Wicket'] = "Not Out"  # Default value if no dismissal
-    # batting_data['Dismissal Kind'] = "-"  # Default value if no dismissal
-    
-    # # Populate Wicket and Dismissal Kind based on dismissal events
-    # for index, row in batting_data.iterrows():
-    #     batsman = row['batsman']
-        
-    #     # Check if this batsman was dismissed
-    #     dismissed_data = inning_data[(inning_data['batsman'] == batsman) & (inning_data['is_wkt'] == 1)]
-        
-    #     if not dismissed_data.empty:
-    #         dismissal_event = dismissed_data.iloc[0]
-            
-    #         # If bowler_wkt is 1, the bowler took the wicket
-    #         if dismissal_event['bowler_wkt'] == 1:
-    #             batting_data.at[index, 'Wicket'] = dismissal_event['bowler']
-    #         else:
-    #             batting_data.at[index, 'Wicket'] = "-"
-            
-    #         # Update dismissal kind
-    #         batting_data.at[index, 'Dismissal Kind'] = dismissal_event['dismissal_kind']
-        
-    #     # Handle retired cases
-    #     retired_data = inning_data[(inning_data['batsman'] == batsman) & (inning_data['dismissal_kind'] == 'retired')]
-    #     if not retired_data.empty:
-    #         retired_event = retired_data.iloc[-1]
-    #         batting_data.at[index, 'Wicket'] = "-"
-    #         batting_data.at[index, 'Dismissal Kind'] = retired_event['dismissal_kind']
-    
-    # # Now handle players who are dismissed but have no valid balls faced
-    # for player in inning_data['player_dismissed'].unique():
-    #     # Check if player is already in the batting_data
-    #     if player not in batting_data['batsman'].values:
-    #         # Get data for the dismissed player
-    #         player_data = (inning_data[inning_data['player_dismissed'] == player])
-    #         p_data = inning_data[inning_data['batsman'] == player]
-    #         valid_ball_sum = p_data['valid_ball'].sum()         
-            
-    #         # Handling the case where the player is dismissed without facing a legal ball
-    #         if valid_ball_sum == 0:
-    #             dismissal_event = inning_data[inning_data['player_dismissed'] == player]  # Get the first row since it's a single dismissal event
-    #             # dismissal_event = inning_data[inning_data['player_dismissed'] == player].iloc[0]
-    #             if not dismissal_event.empty:
-    #                 # bowler_wkt = dismissal_event['bowler_wkt'] #if isinstance(dismissal_event['bowler_wkt'], pd.Series) else dismissal_event['bowler_wkt']
-                    
-    #                 # Create a new row for the player to be added to the batting data
-    #                 new_row = pd.DataFrame({
-    #                     'batsman': [player],
-    #                     'batsman_runs': [0],
-    #                     'valid_ball': [0],
-    #                     'is_four': [0],
-    #                     'is_six': [0],
-    #                     # 'Wicket': [dismissal_event['bowler'] if dismissal_event['bowler_wkt'] == 1 else '-'],
-    #                     # 'Dismissal Kind': [dismissal_event['dismissal_kind']]
-    #                     'Wicket': ["-"],  # Default value for Wicket
-    #                     'Dismissal Kind': ["-"]
-    #                 })
-    #                 # Check if 'bowler_wkt' exists in the dismissal event data
-    #                 new_row.at[0, 'Dismissal Kind'] = dismissal_event['dismissal_kind'].values[0] if isinstance(dismissal_event['dismissal_kind'], pd.Series) else dismissal_event['dismissal_kind']
-    #             # Use pd.concat to add the new row to the existing DataFrame
-    #                 batting_data = pd.concat([batting_data, new_row], ignore_index=True)
-    
-    # # Calculate strike rate
-    # batting_data['batter_sr'] = (batting_data['batsman_runs'] / batting_data['valid_ball']).replace({0 : 0}) * 100
-    
-    # # Rename columns for the batting scorecard
-    # batting_data.columns = ['Batsman', 'R', 'B', '4s', '6s', 'Wicket', 'Dismissal Kind', 'SR']
-    
-    # # Filter out batsmen with 0 runs (if needed)
-    # batting_data['order'] = batting_data['Batsman'].apply(lambda x: batting_order.index(x) if x in batting_order else -1)
-    # batting_data = batting_data.sort_values(by='order').drop(columns='order').reset_index(drop=True)
-    # batting_data.index = batting_data.index + 1
-    
-    # # Display the batting table
-    # st.table(batting_data)
-    
-    # # Show extras
-    # st.write(f"**Extras:** {total_extras}")
-    # Your previous logic for innings data and setting up batting_order
-
     # Batting scorecard
     st.write("Batting")
     batting_order = []
@@ -1354,5 +1248,254 @@ if sidebar_option == "Player Profile":
             else:
                 st.write("No recent matches found for this player.")
 
+elif sidebar_option == "Matchup Analysis":
+    
+    st.header("Matchup Analysis")
+    
+    # Filter unique batters and bowlers from the DataFrame
+    unique_batters = pdf['batsman'].unique()  # Adjust the column name as per your PDF data structure
+    unique_bowlers = pdf['bowler'].unique()    # Adjust the column name as per your PDF data structure
+    unique_batters = unique_batters[unique_batters != '0']  # Filter out '0'
+    unique_bowlers = unique_bowlers[unique_bowlers != '0']  # Filter out '0'
+
+    # Search box for Batters
+    batter_name = st.selectbox("Select a Batter", unique_batters)
+
+    # Search box for Bowlers
+    bowler_name = st.selectbox("Select a Bowler", unique_bowlers)
+
+    # Dropdown for grouping options
+    grouping_option = st.selectbox("Group By", ["Year", "Match", "Venue", "Inning"])
+    matchup_df = pdf[(pdf['batsman'] == batter_name) & (pdf['bowler'] == bowler_name)]
+
+    # Step 3: Create a download option for the DataFrame
+    if not matchup_df.empty:
+        # Convert the DataFrame to CSV format
+        csv = matchup_df.to_csv(index=False)  # Generate CSV string
+        
+        # Step 4: Create the download button
+        st.download_button(
+            label="Download Matchup Data as CSV",
+            data=csv,  # Pass the CSV string directly
+            file_name=f"{batter_name}_vs_{bowler_name}_matchup.csv",
+            mime="text/csv"  # Specify the MIME type for CSV
+        )
+    else:
+        st.warning("No data available for the selected matchup.")
+    if grouping_option == "Year":
+        tdf = pdf[(pdf['batsman'] == batter_name) & (pdf['bowler'] == bowler_name)]
+
+        def standardize_season(season):
+            if '/' in season:  # Check if the season is in 'YYYY/YY' format
+                year = season.split('/')[0]  # Get the first part
+            else:
+                year = season  # Use as is if already in 'YYYY' format
+            return year.strip()  # Return the year stripped of whitespace
+
+        tdf['season'] = tdf['season'].apply(standardize_season)
+
+        # Populate an array of unique seasons
+        unique_seasons = tdf['season'].unique()
+        
+        # Optional: Convert to a sorted list (if needed)
+        unique_seasons = sorted(set(unique_seasons))
+
+        # Ensure tdf is a DataFrame
+        tdf = pd.DataFrame(tdf)
+        tdf['batsman_runs'] = tdf['batsman_runs'].astype(int)
+        tdf['total_runs'] = tdf['total_runs'].astype(int)
+
+        # Initialize an empty result DataFrame
+        result_df = pd.DataFrame()
+        i=0
+        # Run a for loop and pass temp_df to a cumulative function
+        for season in unique_seasons:
+            temp_df = tdf[tdf['season'] == season]
+            temp_df = cumulator(temp_df)
+
+            if i==0:
+                    result_df = temp_df  # Initialize with the first result_df
+                    i=1+i
+            else:
+                    result_df = pd.concat([result_df, temp_df], ignore_index=True)
+        # Drop unnecessary columns related to performance metrics
+        columns_to_drop = ['batsman', 'bowler', 'batting_team', 'debut_year', 'matches_x', 'matches_y', 'fifties', 'hundreds', 'thirties', 'highest_score','matches']
+        result_df = result_df.drop(columns=columns_to_drop, errors='ignore')
+
+        # Convert specific columns to integers and fill NaN values
+        columns_to_convert = ['runs','dismissals']
+        for col in columns_to_convert:
+            result_df[col] = result_df[col].fillna(0).astype(int)
+
+        result_df = result_df.rename(columns={'final_year': 'year'})
+        result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
+
+        # Display the results
+        st.markdown("### **Yearwise Performance**")
+        cols = result_df.columns.tolist()
+
+        # Specify the desired order with 'year' first
+        new_order = ['YEAR'] + [col for col in cols if col != 'YEAR']
+                  
+        # Reindex the DataFrame with the new column order
+        result_df = result_df[new_order]
+        st.table(result_df.style.set_table_attributes("style='font-weight: bold;'"))
+    elif grouping_option == "Match":
+        tdf = pdf[(pdf['batsman'] == batter_name) & (pdf['bowler'] == bowler_name)]
+
+        # Populate an array of unique match IDs
+        unique_matches = sorted(set(tdf['match_id'].unique()))
+
+        # Ensure tdf is a DataFrame
+        tdf = pd.DataFrame(tdf)
+        tdf['batsman_runs'] = tdf['batsman_runs'].astype(int)
+        tdf['total_runs'] = tdf['total_runs'].astype(int)
+
+        # Initialize an empty result DataFrame
+        result_df = pd.DataFrame()
+        i = 0
+
+        # Run a for loop and pass temp_df to a cumulative function
+        for match_id in unique_matches:
+            temp_df = tdf[tdf['match_id'] == match_id]
+            current_match_id = match_id
+            temp_df = cumulator(temp_df)
+            temp_df.insert(0, 'MATCH_ID', current_match_id)
+
+            if i == 0:
+                result_df = temp_df  # Initialize with the first result_df
+                i = 1 + i
+            else:
+                result_df = pd.concat([result_df, temp_df], ignore_index=True)
+        columns_to_drop = ['batsman', 'bowler', 'batting_team', 'debut_year', 'matches_x', 'matches_y', 
+                           'fifties', 'hundreds', 'thirties', 'highest_score', 'season','matches']
+        result_df = result_df.drop(columns=columns_to_drop, errors='ignore')
+
+        # Convert specific columns to integers and fill NaN values
+        columns_to_convert = ['runs', 'dismissals']
+        for col in columns_to_convert:
+            result_df[col] = result_df[col].fillna(0).astype(int)
+
+        # Rename columns for better presentation
+        result_df = result_df.rename(columns={'match_id': 'MATCH ID'})
+        
+        
+        result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
+        result_df['FINAL YEAR']=result_df['FINAL YEAR'].apply(standardize_season)
+        
+        result_df = result_df.rename(columns={'FINAL YEAR': 'YEAR'})  
+
+        # Display the results
+        st.markdown("### **Matchwise Performance**")
+        cols = result_df.columns.tolist()
+
+        # Reindex the DataFrame with the new column order
+        result_df=result_df.sort_values('YEAR',ascending=True)
+        result_df=result_df[['MATCH ID'] + ['YEAR'] + [col for col in result_df.columns if col not in ['MATCH ID','YEAR']]]
+        st.table(result_df.style.set_table_attributes("style='font-weight: bold;'"))
+        for match_id in result_df['MATCH ID']:
+                    if st.button(f'View Match {match_id}'):
+                        show_match_details(match_id)
+        
+                 
+    elif grouping_option == "Venue":
+        # Filter the DataFrame for the selected batsman and bowler
+        tdf = pdf[(pdf['batsman'] == batter_name) & (pdf['bowler'] == bowler_name)]
+    
+        # Ensure tdf is a DataFrame and populate unique venue values
+        tdf = pd.DataFrame(tdf)
+        tdf['batsman_runs'] = tdf['batsman_runs'].astype(int)
+        tdf['total_runs'] = tdf['total_runs'].astype(int)
+    
+        # Initialize an empty result DataFrame
+        result_df = pd.DataFrame()
+        i = 0
+    
+        # Populate an array of unique venues
+        unique_venues = tdf['venue'].unique()
+        
+        for venue in unique_venues:
+            # Filter temp_df for the current venue
+            temp_df = tdf[tdf['venue'] == venue]
+    
+            # Store the current venue in a variable
+            current_venue = venue
+    
+            # Call the cumulator function
+            temp_df = cumulator(temp_df)
+    
+            # Insert the current venue as the first column in temp_df
+            temp_df.insert(0, 'VENUE', current_venue)
+    
+            # Concatenate results
+            if i == 0:
+                result_df = temp_df  # Initialize with the first result_df
+                i += 1
+            else:
+                result_df = pd.concat([result_df, temp_df], ignore_index=True)
+    
+        # Drop unnecessary columns related to performance metrics
+        columns_to_drop = ['batsman', 'bowler', 'batting_team', 'debut_year', 'matches_x', 'matches_y', 'fifties', 'hundreds', 'thirties', 'highest_score', 'matches']
+        result_df = result_df.drop(columns=columns_to_drop, errors='ignore')
+    
+        # Convert specific columns to integers and fill NaN values
+        columns_to_convert = ['runs', 'dismissals']
+        for col in columns_to_convert:
+            result_df[col] = result_df[col].fillna(0).astype(int)
+        result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
+        result_df['FINAL YEAR']=result_df['FINAL YEAR'].apply(standardize_season)
+        
+        result_df = result_df.rename(columns={'FINAL YEAR': 'YEAR'})   
+    
+        # Display the results
+        st.markdown("### **Venuewise Performance**")
+        cols = result_df.columns.tolist()
+    
+        # Specify the desired order with 'venue' first
+        new_order = ['VENUE'] + [col for col in cols if col != 'VENUE']
+        
+                      
+        # Reindex the DataFrame with the new column order
+        result_df = result_df[new_order]
+        result_df=result_df.sort_values('YEAR',ascending=True)
+        result_df=result_df[['VENUE'] + ['YEAR'] + [col for col in result_df.columns if col not in ['VENUE','YEAR']]]
+        st.table(result_df.style.set_table_attributes("style='font-weight: bold;'"))
+        
+    else:
+        # Assuming pdf is your main DataFrame
+        # Filter for innings 1 and 2 and prepare to accumulate results
+        innings = [1, 2]
+        result_df = pd.DataFrame()  # Initialize an empty DataFrame for results
+        
+        for inning in innings:
+            # Filter for the specific inning
+            tdf = pdf[(pdf['batsman'] == batter_name) & (pdf['bowler'] == bowler_name) & (pdf['inning'] == inning)]
+            
+            # Check if there's any data for the current inning
+            if not tdf.empty:
+                # Call the cumulator function
+                temp_df = cumulator(tdf)
+        
+                # Add the inning as the first column in temp_df
+                temp_df.insert(0, 'INNING', inning)
+        
+                # Concatenate to the main result DataFrame
+                result_df = pd.concat([result_df, temp_df], ignore_index=True)
+        
+        # After processing both innings, drop unnecessary columns if needed
+        columns_to_drop = ['batsman', 'bowler', 'batting_team', 'debut_year', 'matches_x', 'matches_y', 'fifties', 'hundreds', 'thirties', 'highest_score', 'matches','last_year']
+        result_df = result_df.drop(columns=columns_to_drop, errors='ignore')
+        
+        # Convert specific columns to integers and fill NaN values
+        columns_to_convert = ['runs', 'dismissals']
+        for col in columns_to_convert:
+            result_df[col] = result_df[col].fillna(0).astype(int)
+        
+        result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
+        
+        # Display the results
+        st.markdown("### **Innings Performance**")
+        result_df=result_df[['INNING'] + [col for col in result_df.columns if col not in ['INNING']]]
+        st.table(result_df.style.set_table_attributes("style='fsont-weight: bold;'")) 
                   
     
