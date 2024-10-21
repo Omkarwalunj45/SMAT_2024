@@ -1254,7 +1254,6 @@ elif sidebar_option == "Matchup Analysis":
     
     # Filter unique batters and bowlers from the DataFrame
     iidf=idf[idf['final_year']=='2023/24']
-    biidf=bidf[bidf['final_year']=='2023/24']
     unique_batters = iidf['batsman'].unique()  # Adjust the column name as per your PDF data structure
     unique_bowlers = biidf['bowler'].unique()    # Adjust the column name as per your PDF data structure
     unique_batters = unique_batters[unique_batters != '0']  # Filter out '0'
