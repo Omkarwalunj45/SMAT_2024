@@ -1160,7 +1160,7 @@ if sidebar_option == "Player Profile":
                                     else:
                                         result_df = pd.concat([result_df, temp_df], ignore_index=True)
                         # Display the final result_df
-                        result_df = result_df.drop(columns=['bowler','debut_year','final_year'])
+                        result_df = result_df.drop(columns=['bowler'])
                         result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
                         columns_to_convert = ['RUNS','THREE WICKET HAULS', 'MAIDEN OVERS']
             
@@ -1200,7 +1200,7 @@ if sidebar_option == "Player Profile":
                                 else:
                                         result_df = pd.concat([result_df, temp_df], ignore_index=True)  # Append subsequent data
                                           
-                        result_df = result_df.drop(columns=['bowler','debut_year','final_year'])
+                        result_df = result_df.drop(columns=['bowler'])
                         result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
                         columns_to_convert = ['THREE WICKET HAULS', 'MAIDEN OVERS']
     
@@ -1256,7 +1256,7 @@ if sidebar_option == "Player Profile":
                         result_df = pd.concat([result_df, temp_df], ignore_index=True)
             
                         # Drop unnecessary columns
-                        result_df = result_df.drop(columns=['bowler','debut_year','final_year'])
+                        result_df = result_df.drop(columns=['bowler'])
                         result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
                         columns_to_convert = ['THREE WICKET HAULS', 'MAIDEN OVERS']
     
@@ -1305,7 +1305,7 @@ if sidebar_option == "Player Profile":
                                 result_df = pd.concat([result_df, temp_df], ignore_index=True)
             
                         if 'bowler' in result_df.columns:
-                            result_df = result_df.drop(columns=['bowler','debut_year','final_year'])
+                            result_df = result_df.drop(columns=['bowler'])
                             result_df=result_df.rename(columns={'country':'state'})
                         result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
                         columns_to_convert = ['RUNS','THREE WICKET HAULS', 'MAIDEN OVERS']
