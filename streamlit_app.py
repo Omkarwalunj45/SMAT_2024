@@ -890,7 +890,7 @@ if sidebar_option == "Player Profile":
                         result_df = pd.concat([result_df, temp_df], ignore_index=True)
                 
                 # Display the final result_df
-                result_df = result_df.drop(columns=['batsman', 'debut_year', 'final_year', 'batting_team'])
+                # result_df = result_df.drop(columns=['batsman', 'debut_year', 'final_year', 'batting_team'])
                 result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
                 columns_to_convert = ['HUNDREDS', 'FIFTIES', 'THIRTIES', 'RUNS', 'HIGHEST SCORE']
                 
