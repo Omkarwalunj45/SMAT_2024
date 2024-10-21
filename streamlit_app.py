@@ -1318,7 +1318,7 @@ if sidebar_option == "Player Profile":
     with tab3:
             st.header("Current Form")
             current_form_df = get_current_form(bpdf, player_name)
-            cols_conv=['season','match_id']
+            cols_conv=['match_id']
             current_form_df[cols_conv] = current_form_df[cols_conv].astype(int)
             
             if not current_form_df.empty:
