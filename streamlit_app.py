@@ -2079,7 +2079,7 @@ elif sidebar_option == "Strength vs Weakness":
       
     if option == "Bowling":
         # st.subheader("Bowler vs Batting Style Analysis")
-        allowed_batting_styles = ['Left hand bat', 'Right hand bat']  # Define the two batting styles
+        allowed_batting_styles = ['Left hand Bat', 'Right hand Bat']  # Define the two batting styles
         result_df = pd.DataFrame()
         temp_df = pdf[pdf['bowler'] == player_name]
         if temp_df.empty :
