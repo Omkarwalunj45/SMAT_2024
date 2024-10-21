@@ -16,6 +16,8 @@ cols_conv=['season','match_id']
 pdf[cols_conv] = pdf[cols_conv].astype(str)
 pdf=pdf.rename(columns={'innings':'inning'})
 bpdf=pdf
+cols_conv=['season','match_id']
+bpdf[cols_conv] = bpdf[cols_conv].astype(str)
 idf = pd.read_csv("Dataset/lifesaver_bat_smat.csv",low_memory=False)
 
 info_df=pd.read_csv("Dataset/cricket_players_data.csv",low_memory=False)
@@ -1318,8 +1320,6 @@ if sidebar_option == "Player Profile":
     with tab3:
             st.header("Current Form")
             current_form_df = get_current_form(bpdf, player_name)
-            cols_conv=['match_id']
-            current_form_df[cols_conv] = current_form_df[cols_conv].astype(int)
             
             if not current_form_df.empty:
                 current_form_df.columns = [col.upper() for col in current_form_df.columns]
