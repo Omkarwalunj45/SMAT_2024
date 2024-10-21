@@ -2119,7 +2119,7 @@ elif sidebar_option == "Strength vs Weakness":
               
               # Specify the desired order with 'phase' first
             new_order = ['BATTING STYLE'] + [col for col in cols if col not in 'BATTING STYLE']
-            result_df = result_df[new_order]
+            # result_df = result_df[new_order]
         
             # Display the final table
             st.markdown("### Cumulative Bowling Performance Against Batting Styles")
