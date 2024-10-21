@@ -1563,7 +1563,7 @@ elif sidebar_option == "Strength vs Weakness":
                   result_df = pd.concat([result_df, temp_df], ignore_index=True)
           
           # Display the final result_df
-          # result_df = result_df.drop(columns=['matches_x', 'matches_y', 'batsman', 'debut_year', 'final_year','hundreds','fifties','thirties','highest_score','batting_team','matches'])
+          result_df = result_df.drop(columns=['batsman', 'debut_year', 'final_year','hundreds','fifties','thirties','highest_score','batting_team','matches'])
           result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
           columns_to_convert = ['RUNS']
           
@@ -1700,7 +1700,7 @@ elif sidebar_option == "Strength vs Weakness":
                   result_df = pd.concat([result_df, temp_df], ignore_index=True)
           
           # Display the final result_df
-          # result_df = result_df.drop(columns=['matches_x', 'matches_y', 'batsman', 'debut_year', 'final_year','hundreds','fifties','thirties','highest_score','batting_team','matches'])
+          result_df = result_df.drop(columns=['batsman', 'debut_year', 'final_year','hundreds','fifties','thirties','highest_score','batting_team','matches'])
           result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
           columns_to_convert = ['RUNS']
   
@@ -1863,7 +1863,7 @@ elif sidebar_option == "Strength vs Weakness":
                   result_df = pd.concat([result_df, temp_df], ignore_index=True)
           
           # Display the final result_df
-          # result_df = result_df.drop(columns=['matches_x', 'matches_y', 'batsman', 'debut_year', 'final_year','hundreds','fifties','thirties','highest_score','batting_team','matches'])
+          result_df = result_df.drop(columns=['batsman', 'debut_year', 'final_year','hundreds','fifties','thirties','highest_score','batting_team','matches'])
           result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
           columns_to_convert = ['RUNS']
           
@@ -2106,7 +2106,7 @@ elif sidebar_option == "Strength vs Weakness":
                 result_df = pd.concat([result_df, temp_df], ignore_index=True)
         
             # Drop unwanted columns from the result DataFrame
-            result_df = result_df.drop(columns=['bowler', 'debut_year', 'final_year'])
+            result_df = result_df.drop(columns=['bowler'])
         
             # Standardize column names
             result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
@@ -2250,7 +2250,7 @@ elif sidebar_option == "Strength vs Weakness":
                 result_df = pd.concat([result_df, temp_df], ignore_index=True)
             
             # Drop unwanted columns from the result DataFrame
-            result_df = result_df.drop(columns=['bowler', 'debut_year', 'final_year'])
+            result_df = result_df.drop(columns=['bowler'])
             
             # Standardize column names
             result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
