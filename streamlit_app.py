@@ -1497,5 +1497,899 @@ elif sidebar_option == "Matchup Analysis":
         st.markdown("### **Innings Performance**")
         result_df=result_df[['INNING'] + [col for col in result_df.columns if col not in ['INNING']]]
         st.table(result_df.style.set_table_attributes("style='fsont-weight: bold;'")) 
+
+elif sidebar_option == "Strength vs Weakness":
+    st.header("Strength and Weakness Analysis")
+    player_name = st.selectbox("Search for a player", idf['batsman'].unique())
+    
+    # Dropdown for Batting or Bowling selection
+    option = st.selectbox("Select Role", ("Batting", "Bowling"))
+    
+    if option == "Batting":
+        # st.subheader("Batsman vs Bowling Style Analysis")
+          allowed_bowling_styles = {
+          'pace': [
+              'Right-arm medium fast', 'Right arm medium fast', 
+              'Right-arm fast', 'Right-arm fast-medium', 
+              'Left-arm medium'
+                  ],
+          'spin': [
+              'Right-arm off-break', 'Right-arm off-break and Legbreak', 
+              'Right-arm leg-spin', 'Slow left-arm orthodox', 
+              'Left-arm wrist spin'
+                  ]
+                  }
+      
+        # Add 'bowl_kind' column in pdf
+          def add_bowl_kind(pdf):
+              pdf['bowl_kind'] = pdf['bowling_style'].apply(
+                  lambda x: 'pace' if x in allowed_bowling_styles['pace'] else 'spin' if x in allowed_bowling_styles['spin'] else 'unknown'
+              )
+              return pdf
+          
+          # Apply the function to add the 'bowl_kind' column
+          pdf = add_bowl_kind(pdf)
+          
+          result_df = pd.DataFrame()
+          i = 0
+          
+          # Loop over pace and spin bowling types
+          for bowl_kind in ['pace', 'spin']:
+              temp_df = pdf[pdf['batsman'] == player_name]  # Filter data for the selected batsman
+              
+              # Filter for the specific 'bowl_kind'
+              temp_df = temp_df[temp_df['bowl_kind'] == bowl_kind]
+              
+              # Apply the cumulative function (bcum)
+              temp_df = cumulator(temp_df)
+              
+              # If the DataFrame is empty after applying `bcum`, skip this iteration
+              if temp_df.empty:
+                  continue
+              
+              # Add the bowl_kind column
+              temp_df['bowl_kind'] = bowl_kind
+              
+              # Reorder columns to make 'bowl_kind' the first column
+              cols = temp_df.columns.tolist()
+              new_order = ['bowl_kind'] + [col for col in cols if col != 'bowl_kind']
+              temp_df = temp_df[new_order]
+              
+              # Concatenate results into result_df
+              if i == 0:
+                  result_df = temp_df
+                  i += 1
+              else:
+                  result_df = pd.concat([result_df, temp_df], ignore_index=True)
+          
+          # Display the final result_df
+          result_df = result_df.drop(columns=['matches_x', 'matches_y', 'batsman', 'debut_year', 'final_year','hundreds','fifties','thirties','highest_score','batting_team','matches'])
+          result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
+          columns_to_convert = ['RUNS']
+          
+          # Fill NaN values with 0
+          # result_df[columns_to_convert] = result_df[columns_to_convert].fillna(0)
+          
+          # Convert the specified columns to integer type
+          # result_df[columns_to_convert] = result_df[columns_to_convert].astype(int)
+          result_df = round_up_floats(result_df)
+          
+          # Specify the desired order with 'bowl_kind' first
+          cols = result_df.columns.tolist()
+          # new_order = ['BOWL KIND', 'INNINGS'] + [col for col in cols if col not in ['BOWL KIND', 'INNINGS']]
+          
+          # Reindex the DataFrame with the new column order
+          # result_df = result_df[new_order]
+          result_df['BOWL KIND'] = result_df['BOWL KIND'].str.capitalize()
+          st.markdown("### Performance Against Bowling Types (Pace vs Spin)")
+          st.table(result_df.style.set_table_attributes("style='font-weight: bold;'"))
+          
+          # Set thresholds for strengths and weaknesses for Women's T20Is
+          strength_thresholds = {
+              'SR': 125,               # Threshold for Strike Rate
+              'AVG': 30,               # Threshold for Average
+              'DOT PERCENTAGE': 25,    # Threshold for Dot Percentage
+              'BPB': 5,                # Threshold for Boundary Percentage Batsman
+              'BPD': 20                # Threshold for Boundary Percentage Delivery
+          }
+          
+          weakness_thresholds = {
+              'SR': 90,                # Threshold for Strike Rate
+              'AVG': 15,               # Threshold for Average
+              'DOT PERCENTAGE': 40,    # Threshold for Dot Percentage
+              'BPB': 7,                # Threshold for Boundary Percentage Batsman
+              'BPD': 15                # Threshold for Boundary Percentage Delivery
+          }
+          
+          # Initialize lists to hold strengths and weaknesses
+          strong_against = []
+          weak_against = []
+          
+          # Check each bowling kind's stats against the thresholds
+          for index, row in result_df.iterrows():
+              strong_count = 0
+              weak_count = 0
+              if row['INNINGS'] >= 3:
+                  # Evaluate strengths
+                  if row['SR'] >= strength_thresholds['SR']:
+                      strong_count += 1
+                  if row['AVG'] >= strength_thresholds['AVG']:
+                      strong_count += 1
+                  if row['DOT PERCENTAGE'] <= strength_thresholds['DOT PERCENTAGE']:
+                      strong_count += 1
+                  if row['BPB'] <= strength_thresholds['BPB']:
+                      strong_count += 1
+                  if row['BPD'] >= strength_thresholds['BPD']:
+                      strong_count += 1
+                  
+                  # Evaluate weaknesses
+                  if row['SR'] <= weakness_thresholds['SR']:
+                      weak_count += 1
+                  if row['AVG'] <= weakness_thresholds['AVG']:
+                      weak_count += 1
+                  if row['DOT PERCENTAGE'] >= weakness_thresholds['DOT PERCENTAGE']:
+                      weak_count += 1
+                  if row['BPB'] >= weakness_thresholds['BPB']:
+                      weak_count += 1
+                  if row['BPD'] <= weakness_thresholds['BPD']:
+                      weak_count += 1
+                  
+                  # Determine strong/weak based on counts
+                  if strong_count >= 3:
+                      strong_against.append(row['BOWL KIND'])
+                  if weak_count >= 3:
+                      weak_against.append(row['BOWL KIND'])
+                  
+                  # Format the output message
+                  if strong_against:
+                        strong_message = f"{player_name} is strong against: {', '.join(strong_against)}."
+                  else:
+                        strong_message = f"{player_name} has no clear strengths against any bowling type."
+                      
+                  if weak_against:
+                        weak_message = f"{player_name} is weak against: {', '.join(weak_against)}."
+                  else:
+                        weak_message = f"{player_name} has no clear weaknesses against any bowling type."
+          
+              else:
+                  continue
+          
+          # Display strengths and weaknesses messages
+          st.markdown("##### Strengths and Weaknesses Against Bowling Types")
+          st.write(strong_message)
+          st.write(weak_message)
+
+        
+          allowed_bowling_styles = [
+              'Right-arm medium fast', 'Right arm medium fast', 
+              'Right-arm off-break', 'Right-arm fast', 
+              'Right-arm fast-medium', 'Right-arm off-break and Legbreak',
+              'Right-arm leg-spin', 'Left-arm medium',
+              'Slow left-arm orthodox', 'Left-arm wrist spin'
+              ]
+              
+          result_df = pd.DataFrame()
+          i = 0
+              
+          for bowling_style in allowed_bowling_styles:
+              temp_df = pdf[pdf['batsman'] == player_name]  # Filter data for the selected batsman
+              
+              # Filter for the specific bowling style
+              temp_df = temp_df[temp_df['bowling_style'] == bowling_style]
+              
+              # Apply the cumulative function (bcum)
+              temp_df = cumulator(temp_df)
+              
+              # If the DataFrame is empty after applying `bcum`, skip this iteration
+              if temp_df.empty:
+                  continue
+              
+              # Add the bowling style column
+              temp_df['bowling_style'] = bowling_style
+              
+              # Reorder columns to make 'bowling_style' the first column
+              cols = temp_df.columns.tolist()
+              new_order = ['bowling_style'] + [col for col in cols if col != 'bowling_style']
+              temp_df = temp_df[new_order]
+              
+              # Concatenate results into result_df
+              if i == 0:
+                  result_df = temp_df
+                  i += 1
+              else:
+                  result_df = pd.concat([result_df, temp_df], ignore_index=True)
+          
+          # Display the final result_df
+          result_df = result_df.drop(columns=['matches_x', 'matches_y', 'batsman', 'debut_year', 'final_year','hundreds','fifties','thirties','highest_score','batting_team','matches'])
+          result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
+          columns_to_convert = ['RUNS']
+  
+          # Fill NaN values with 0
+          result_df[columns_to_convert] = result_df[columns_to_convert].fillna(0)
+  
+          # Convert the specified columns to integer type
+          result_df[columns_to_convert] = result_df[columns_to_convert].astype(int)
+          result_df = round_up_floats(result_df)
+          cols = result_df.columns.tolist()
+  
+          # Specify the desired order with 'bowling_style' first
+          new_order = ['BOWLING STYLE', 'INNINGS'] + [col for col in cols if col not in ['BOWLING STYLE','INNINGS',]]
+  
+          # Reindex the DataFrame with the new column order
+          result_df = result_df[new_order]
+  
+          st.markdown("### Performance Against Bowling Styles")
+          st.table(result_df.style.set_table_attributes("style='font-weight: bold;'"))
+          
+          strong_against = []
+          weak_against = []
+          
+          # Check each bowling style's stats against the thresholds
+          for index, row in result_df.iterrows():
+              strong_count = 0
+              weak_count = 0
+              if row['INNINGS']>=3:
+                  # Evaluate strengths
+                  if row['SR'] >= strength_thresholds['SR']:
+                      strong_count += 1
+                  if row['AVG'] >= strength_thresholds['AVG']:
+                      strong_count += 1
+                  if row['DOT PERCENTAGE'] <= strength_thresholds['DOT PERCENTAGE']:
+                      strong_count += 1
+                  if row['BPB'] <= strength_thresholds['BPB']:
+                      strong_count += 1
+                  if row['BPD'] >= strength_thresholds['BPD']:
+                      strong_count += 1
+              
+                  # Evaluate weaknesses
+                  if row['SR'] <= weakness_thresholds['SR']:
+                      weak_count += 1
+                  if row['AVG'] <= weakness_thresholds['AVG']:
+                      weak_count += 1
+                  if row['DOT PERCENTAGE'] >= weakness_thresholds['DOT PERCENTAGE']:
+                      weak_count += 1
+                  if row['BPB'] >= weakness_thresholds['BPB']:
+                      weak_count += 1
+                  if row['BPD'] <= weakness_thresholds['BPD']:
+                      weak_count += 1
+              
+                  # Determine strong/weak based on counts
+                  if strong_count >= 3:
+                      strong_against.append(row['BOWLING STYLE'])
+                  if weak_count >= 3:
+                      weak_against.append(row['BOWLING STYLE'])
+                  
+                  # Format the output message
+                  if strong_against:
+                        strong_message = f"{player_name} is strong against: {', '.join(strong_against)}."
+                  else:
+                        strong_message = f"{player_name} has no clear strengths against any bowling style."
+                      
+                  if weak_against:
+                        weak_message = f"{player_name} is weak against: {', '.join(weak_against)}."
+                  else:
+                        weak_message = f"{player_name} has no clear weaknesses against any bowling style."
+  
+        
+              else:
+                  continue
+          # Display strengths and weaknesses messages
+          st.markdown("##### Strengths and Weaknesses")
+          st.write(strong_message)
+          st.write(weak_message)
+
+          
+          # Streamlit header
+          # st.header("Phase-wise Strength and Weakness Analysis")
+          strength_thresholds_pp = {
+              'SR': 135,               # Threshold for Strike Rate
+              'AVG': 20,               # Threshold for Average
+              'DOT PERCENTAGE': 25,    # Threshold for Dot Percentage
+              'BPB': 4,                # Threshold for Boundary Percentage Batsman
+              'BPD': 18                # Threshold for Boundary Percentage Delivery
+                                }
+          
+          weakness_thresholds_pp = {
+              'SR': 120,                # Threshold for Strike Rate
+              'AVG': 10,               # Threshold for Average
+              'DOT PERCENTAGE': 30,    # Threshold for Dot Percentage
+              'BPB': 7,                # Threshold for Boundary Percentage Batsman
+              'BPD': 15                # Threshold for Boundary Percentage Delivery
+                                }
+          strength_thresholds_m = {
+              'SR': 120,               # Threshold for Strike Rate
+              'AVG': 30,               # Threshold for Average
+              'DOT PERCENTAGE': 32,    # Threshold for Dot Percentage
+              'BPB': 6,                # Threshold for Boundary Percentage Batsman
+              'BPD': 23                # Threshold for Boundary Percentage Delivery
+                                }
+          
+          weakness_thresholds_m = {
+              'SR': 110,                # Threshold for Strike Rate
+              'AVG': 25,               # Threshold for Average
+              'DOT PERCENTAGE': 40,    # Threshold for Dot Percentage
+              'BPB': 7,                # Threshold for Boundary Percentage Batsman
+              'BPD': 18                # Threshold for Boundary Percentage Delivery
+                                }
+          strength_thresholds_d = {
+              'SR': 145,               # Threshold for Strike Rate
+              'AVG': 20,               # Threshold for Average
+              'DOT PERCENTAGE': 25,    # Threshold for Dot Percentage
+              'BPB': 4,                # Threshold for Boundary Percentage Batsman
+              'BPD': 15                # Threshold for Boundary Percentage Delivery
+                                }
+          
+          weakness_thresholds_d = {
+              'SR': 130,                # Threshold for Strike Rate
+              'AVG': 10,               # Threshold for Average
+              'DOT PERCENTAGE': 32,    # Threshold for Dot Percentage
+              'BPB': 6,                # Threshold for Boundary Percentage Batsman
+              'BPD': 10                # Threshold for Boundary Percentage Delivery
+                                }
+          
+          # DataFrame to hold results
+          result_df = pd.DataFrame()
+          i = 0
+          
+          # Phases to analyze
+          phases = ['Powerplay', 'Middle', 'Death']
+          
+          for phase in phases:
+              temp_df = pdf[pdf['batsman'] == player_name]  # Filter data for the selected batsman
+              
+              # Filter for the specific phase
+              temp_df = temp_df[temp_df['phase'] == phase]
+              
+              # Apply the cumulative function (assuming `cumulator` is defined)
+              temp_df = cumulator(temp_df)
+              
+              # If the DataFrame is empty after applying `cumulator`, skip this iteration
+              if temp_df.empty:
+                  continue
+              
+              # Add the phase column
+              temp_df['phase'] = phase
+              
+              # Reorder columns to make 'phase' the first column
+              cols = temp_df.columns.tolist()
+              new_order = ['phase'] + [col for col in cols if col != 'phase']
+              temp_df = temp_df[new_order]
+              
+              # Concatenate results into result_df
+              if i == 0:
+                  result_df = temp_df
+                  i += 1
+              else:
+                  result_df = pd.concat([result_df, temp_df], ignore_index=True)
+          
+          # Display the final result_df
+          result_df = result_df.drop(columns=['matches_x', 'matches_y', 'batsman', 'debut_year', 'final_year','hundreds','fifties','thirties','highest_score','batting_team','matches'])
+          result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
+          columns_to_convert = ['RUNS']
+          
+          # Fill NaN values with 0
+          result_df[columns_to_convert] = result_df[columns_to_convert].fillna(0)
+          
+          # Convert the specified columns to integer type
+          result_df[columns_to_convert] = result_df[columns_to_convert].astype(int)
+          result_df = round_up_floats(result_df)
+          cols = result_df.columns.tolist()
+          
+          # Specify the desired order with 'phase' first
+          new_order = ['PHASE', 'INNINGS'] + [col for col in cols if col not in ['PHASE','INNINGS']]
+          result_df = result_df[new_order]
+          
+          st.markdown("### Performance in Different Phases")
+          st.table(result_df.style.set_table_attributes("style='font-weight: bold;'"))
+          
+          
+          strong_against = []
+          weak_against = []
+          
+          # Check each phase's stats against the thresholds
+          for index, row in result_df.iterrows():
+              strong_count = 0
+              weak_count = 0
+              if row['PHASE']=='Powerplay':
+                  if row['INNINGS'] >= 3:
+                      # Evaluate strengths
+                      if row['SR'] >= strength_thresholds_pp['SR']:
+                          strong_count += 1
+                      if row['AVG'] >= strength_thresholds_pp['AVG']:
+                          strong_count += 1
+                      if row['DOT PERCENTAGE'] <= strength_thresholds_pp['DOT PERCENTAGE']:
+                          strong_count += 1
+                      if row['BPB'] <= strength_thresholds_pp['BPB']:
+                          strong_count += 1
+                      if row['BPD'] >= strength_thresholds_pp['BPD']:
+                          strong_count += 1
+                      
+                      # Evaluate weaknesses
+                      if row['SR'] <= weakness_thresholds_pp['SR']:
+                          weak_count += 1
+                      if row['AVG'] <= weakness_thresholds_pp['AVG']:
+                          weak_count += 1
+                      if row['DOT PERCENTAGE'] >= weakness_thresholds_pp['DOT PERCENTAGE']:
+                          weak_count += 1
+                      if row['BPB'] >= weakness_thresholds_pp['BPB']:
+                          weak_count += 1
+                      if row['BPD'] <= weakness_thresholds_pp['BPD']:
+                          weak_count += 1
+                      
+                      # Determine strong/weak based on counts
+                      if strong_count >= 3:
+                          strong_against.append(row['PHASE'])
+                      if weak_count >= 3:
+                          weak_against.append(row['PHASE'])
+                                              
+              if row['PHASE']=='Middle':
+                  if row['INNINGS'] >= 3:
+                      # Evaluate strengths
+                      if row['SR'] >= strength_thresholds_m['SR']:
+                          strong_count += 1
+                      if row['AVG'] >= strength_thresholds_m['AVG']:
+                          strong_count += 1
+                      if row['DOT PERCENTAGE'] <= strength_thresholds_m['DOT PERCENTAGE']:
+                          strong_count += 1
+                      if row['BPB'] <= strength_thresholds_m['BPB']:
+                          strong_count += 1
+                      if row['BPD'] >= strength_thresholds_m['BPD']:
+                          strong_count += 1
+                      
+                      # Evaluate weaknesses
+                      if row['SR'] <= weakness_thresholds_m['SR']:
+                          weak_count += 1
+                      if row['AVG'] <= weakness_thresholds_m['AVG']:
+                          weak_count += 1
+                      if row['DOT PERCENTAGE'] >= weakness_thresholds_m['DOT PERCENTAGE']:
+                          weak_count += 1
+                      if row['BPB'] >= weakness_thresholds_m['BPB']:
+                          weak_count += 1
+                      if row['BPD'] <= weakness_thresholds_m['BPD']:
+                          weak_count += 1
+                      
+                      # Determine strong/weak based on counts
+                      if strong_count >= 3:
+                          strong_against.append(row['PHASE'])
+                      if weak_count >= 3:
+                          weak_against.append(row['PHASE'])
+              if row['PHASE']=='Death':
+                  if row['INNINGS'] >= 3:
+                      # Evaluate strengths
+                      if row['SR'] >= strength_thresholds_d['SR']:
+                          strong_count += 1
+                      if row['AVG'] >= strength_thresholds_d['AVG']:
+                          strong_count += 1
+                      if row['DOT PERCENTAGE'] <= strength_thresholds_d['DOT PERCENTAGE']:
+                          strong_count += 1
+                      if row['BPB'] <= strength_thresholds_d['BPB']:
+                          strong_count += 1
+                      if row['BPD'] >= strength_thresholds_d['BPD']:
+                          strong_count += 1
+                      
+                      # Evaluate weaknesses
+                      if row['SR'] <= weakness_thresholds_d['SR']:
+                          weak_count += 1
+                      if row['AVG'] <= weakness_thresholds_d['AVG']:
+                          weak_count += 1
+                      if row['DOT PERCENTAGE'] >=weakness_thresholds_d['DOT PERCENTAGE']:
+                          weak_count += 1
+                      if row['BPB'] >= weakness_thresholds_d['BPB']:
+                          weak_count += 1
+                      if row['BPD'] <= weakness_thresholds_d['BPD']:
+                          weak_count += 1
+                      
+                      # Determine strong/weak based on counts
+                      if strong_count >= 3:
+                          strong_against.append(row['PHASE'])
+                      if weak_count >= 3:
+                          weak_against.append(row['PHASE'])      
+    
+          # Format the output message
+          strong_message = f"{player_name} is strong in: {', '.join(strong_against) if strong_against else 'no clear strengths in any phase.'}."
+          weak_message = f"{player_name} is weak in: {', '.join(weak_against) if weak_against else 'no clear weaknesses in any phase.'}."
+          
+          # Display strengths and weaknesses messages
+          st.markdown("##### Strengths and Weaknesses")
+          st.write(strong_message)
+          st.write(weak_message)
+          player_data = pdf[pdf['batsman'] == player_name]
+          
+          # Group by dismissal_kind and count the number of dismissals
+          dismissal_counts = player_data.groupby('dismissal_kind').size().reset_index(name='count')
+          
+          # Sort the dismissal kinds by count
+          dismissal_counts = dismissal_counts.sort_values(by='count', ascending=True)
+          dismissal_counts['dismissal_kind'] = dismissal_counts['dismissal_kind'].str.upper()
+          plt.figure(figsize=(10, 6))
+          plt.barh(dismissal_counts['dismissal_kind'], dismissal_counts['count'], color='skyblue')
+          plt.xlabel('Number of Dismissals', fontsize=14)
+          plt.ylabel('Dismissal Type', fontsize=14)
+          plt.title(f'Number of Dismissals by Dismissal Type for {player_name}',fontsize=18)
+          plt.grid(axis='x', linestyle='--', alpha=0.7)
+          plt.tight_layout()
+          
+          # Display the plot in Streamlit
+          st.pyplot(plt)
+          import pandas as pd
+          import matplotlib.pyplot as plt
+            
+            # Copy the original dataset to a new DataFrame
+          df_ball_wise = pdf.copy()
+          df_ball_wise = df_ball_wise[df_ball_wise['batsman']==player_name] 
+            
+            # Step 1: Filter for valid balls (valid_ball == 1)
+          df_ball_wise = df_ball_wise[df_ball_wise['valid_ball'] == 1]
+            
+            # Step 2: Define ball ranges
+          def ball_range(ball_count):
+              if ball_count <= 10:
+                  return '0-10'
+              elif ball_count <= 20:
+                  return '11-20'
+              elif ball_count <= 30:
+                  return '21-30'
+              elif ball_count <= 40:
+                  return '31-40'
+              else:
+                  return '>40'
+            
+            # Step 3: Initialize an empty dictionary to store SR for each range
+          range_sr_dict = {'0-10': [], '11-20': [], '21-30': [], '31-40': [], '>40': []}
+          
+          # Step 4: Loop through each match_id
+          for match_id in df_ball_wise['match_id'].unique():
+              # Filter data for the current match_id
+              match_data = df_ball_wise[df_ball_wise['match_id'] == match_id]
+              
+                # Step 5: Create ball_count column for the current match
+              match_data['ball_count'] = match_data.groupby(['batsman']).cumcount() + 1
+                
+                # Step 6: Apply ball range categorization
+              match_data['ball_range'] = match_data['ball_count'].apply(ball_range)
+                
+                # Step 7: Calculate SR for each ball range within the current match
+              sr_by_range = match_data.groupby('ball_range').agg({'batsman_runs': 'sum', 'ball_count': 'count'}).reset_index()
+              sr_by_range['strike_rate'] = (sr_by_range['batsman_runs'] / sr_by_range['ball_count']) * 100
+
+                
+                # Step 8: Store the SR in the range_sr_dict for each range
+              for idx, row in sr_by_range.iterrows():
+                  range_sr_dict[row['ball_range']].append(row['strike_rate'])
+            
+            # Step 9: Calculate the mean SR for each range across all matches
+          mean_sr_by_range = {range_: (sum(sr_list) / len(sr_list)) if sr_list else 0 for range_, sr_list in range_sr_dict.items()}
+            
+            # Step 10: Convert the dictionary to a DataFrame for plotting
+          sr_df = pd.DataFrame(list(mean_sr_by_range.items()), columns=['ball_range', 'avg_strike_rate'])
+            
+            # Step 11: Plot the bar graph
+          plt.figure(figsize=(8,6))
+          plt.bar(sr_df['ball_range'], sr_df['avg_strike_rate'], color='lightpink')
+            
+            # Customize the plot
+          plt.title('Ball-wise Average Strike Rate Across Matches', fontsize=14)
+          plt.xlabel('Ball Range', fontsize=12)
+          plt.ylabel('Average Strike Rate (SR)', fontsize=12)
+          plt.grid(True, axis='y', linestyle='--', alpha=0.6)
+            
+            # Show the plot
+          st.pyplot(plt)
+
+      
+    if option == "Bowling":
+        # st.subheader("Bowler vs Batting Style Analysis")
+        allowed_batting_styles = ['Left-hand bat', 'Right-hand bat']  # Define the two batting styles
+        result_df = pd.DataFrame()
+        temp_df = pdf[pdf['bowler'] == player_name]
+        if temp_df.empty :
+            st.markdown('Bowling stats do not exist')
+        else:
+            # Loop over left-hand and right-hand batting styles
+            for bat_style in allowed_batting_styles:
+                temp_df = pdf[pdf['bowler'] == player_name]  # Filter data for the selected bowler
+                
+                # Filter for the specific batting style
+                temp_df = temp_df[temp_df['batting_style'] == bat_style]
+                
+                # Apply the cumulative function (bcum) for bowling
+                temp_df = bcum(temp_df)
+                
+                # If the DataFrame is empty after applying bcum, skip this iteration
+                if temp_df.empty:
+                    continue
+                
+                # Add the batting style as a column for later distinction
+                temp_df['batting_style'] = bat_style
+                
+                # Concatenate results into result_df
+                result_df = pd.concat([result_df, temp_df], ignore_index=True)
+        
+            # Drop unwanted columns from the result DataFrame
+            result_df = result_df.drop(columns=['bowler', 'debut_year', 'final_year'])
+        
+            # Standardize column names
+            result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
+            
+            # Convert the relevant columns to integers and fill NaN values
+            columns_to_convert = ['WKTS']
+            result_df[columns_to_convert] = result_df[columns_to_convert].fillna(0).astype(int)
+            result_df = round_up_floats(result_df)
+            cols = result_df.columns.tolist()
+              
+              # Specify the desired order with 'phase' first
+            new_order = ['BATTING STYLE'] + [col for col in cols if col not in 'BATTING STYLE']
+            result_df = result_df[new_order]
+        
+            # Display the final table
+            st.markdown("### Cumulative Bowling Performance Against Batting Styles")
+            st.table(result_df.style.set_table_attributes("style='font-weight: bold;'"))
+        
+            # Set thresholds for strengths and weaknesses for Women's T20Is (Bowling performance)
+            strength_thresholds = {
+                'SR': 20,               # Strike Rate (balls per wicket)
+                'AVG': 16.5,              # Average (runs per wicket)
+                'DOT%': 45,   # Dot ball percentage
+                'Econ': 6, 
+            }
+        
+            weakness_thresholds = {
+                'SR': 30,               # Strike Rate (balls per wicket)
+                'AVG': 26,              # Average (runs per wicket)
+                'DOT%': 38,   # Dot ball percentage
+                'Econ':8,
+            }
+        
+            # Initialize lists to hold strengths and weaknesses
+            strong_against = []
+            weak_against = []
+        
+            # Check each batting style's stats against the thresholds
+            for index, row in result_df.iterrows():
+                strong_count = 0
+                weak_count = 0
+                if row['INNINGS'] >= 3:
+                    # Evaluate strengths
+                    if row['SR'] <= strength_thresholds['SR']:
+                        strong_count += 1
+                    if row['AVG'] <= strength_thresholds['AVG']:
+                        strong_count += 1
+                    if row['DOT%'] >= strength_thresholds['DOT%']:
+                        strong_count += 1
+                    if row['ECON'] <= strength_thresholds['Econ']:
+                        strong_count += 1
+                   
+                    
+                    # Evaluate weaknesses
+                    if row['SR'] >= weakness_thresholds['SR']:
+                        weak_count += 1
+                    if row['AVG'] >= weakness_thresholds['AVG']:
+                        weak_count += 1
+                    if row['DOT%'] <= weakness_thresholds['DOT%']:
+                        weak_count += 1
+                    if row['ECON'] >= strength_thresholds['Econ']:
+                        weak_count += 1
+                    
+                    # Determine strong/weak based on counts
+                    if strong_count >= 3:
+                        strong_against.append(row['BATTING STYLE'])
+                    if weak_count >= 3:
+                        weak_against.append(row['BATTING STYLE'])
+                    
+            # Format the output message
+            strong_message = f"{player_name} is strong against: {', '.join(strong_against)}." if strong_against else f"{player_name} has no clear strengths against any batting style."
+            weak_message = f"{player_name} is weak against: {', '.join(weak_against)}." if weak_against else f"{player_name} has no clear weaknesses against any batting style."
+        
+            # Display strengths and weaknesses messages
+            st.markdown("##### Strengths and Weaknesses Against Batting Styles")
+            st.write(strong_message)
+            st.write(weak_message)
+    
+            # Define the match phases
+            allowed_phases = ['Powerplay', 'Middle', 'Death']  # Define the three phases
+            strength_thresholds_pp = {
+                'SR': 14,               # Strike Rate (balls per wicket)
+                'AVG': 14.5,              # Average (runs per wicket)
+                'DOT%': 35,   # Dot ball percentage
+                'Econ': 7, 
+            }
+        
+            weakness_thresholds_pp= {
+                'SR': 28,               # Strike Rate (balls per wicket)
+                'AVG': 24,              # Average (runs per wicket)
+                'DOT%': 25,   # Dot ball percentage
+                'Econ':8,
+            }
+            strength_thresholds_m = {
+                'SR': 23,               # Strike Rate (balls per wicket)
+                'AVG': 16.5,              # Average (runs per wicket)
+                'DOT%': 45,   # Dot ball percentage
+                'Econ': 6.3, 
+            }
+        
+            weakness_thresholds_m = {
+                'SR': 33,               # Strike Rate (balls per wicket)
+                'AVG': 26,              # Average (runs per wicket)
+                'DOT%': 38,   # Dot ball percentage
+                'Econ':7.5,
+            }
+            strength_thresholds_d = {
+                'SR': 22,               # Strike Rate (balls per wicket)
+                'AVG': 20.5,              # Average (runs per wicket)
+                'DOT%': 38,   # Dot ball percentage
+                'Econ': 7.8, 
+            }
+        
+            weakness_thresholds_d = {
+                'SR': 30,               # Strike Rate (balls per wicket)
+                'AVG': 26,              # Average (runs per wicket)
+                'DOT%': 30 ,   # Dot ball percentage
+                'Econ':8.5,
+            }
+            
+            result_df = pd.DataFrame()
+            
+            # Loop over each phase
+            for phase in allowed_phases:
+                temp_df = pdf[pdf['bowler'] == player_name]  # Filter data for the selected bowler
+                
+                # Filter for the specific phase
+                temp_df = temp_df[temp_df['phase'] == phase]
+                
+                # Apply the cumulative function (bcum) for bowling
+                temp_df = bcum(temp_df)
+                
+                # If the DataFrame is empty after applying bcum, skip this iteration
+                if temp_df.empty:
+                    continue
+                
+                # Add the phase as a column for later distinction
+                temp_df['phase'] = phase
+                
+                # Concatenate results into result_df
+                result_df = pd.concat([result_df, temp_df], ignore_index=True)
+            
+            # Drop unwanted columns from the result DataFrame
+            result_df = result_df.drop(columns=['bowler', 'debut_year', 'final_year'])
+            
+            # Standardize column names
+            result_df.columns = [col.upper().replace('_', ' ') for col in result_df.columns]
+            
+            # Convert the relevant columns to integers and fill NaN values
+            columns_to_convert = ['WKTS']
+            result_df[columns_to_convert] = result_df[columns_to_convert].fillna(0).astype(int)
+            result_df = round_up_floats(result_df)
+            
+            # Specify the desired column order with 'PHASE' first
+            cols = result_df.columns.tolist()
+            new_order = ['PHASE'] + [col for col in cols if col not in 'PHASE']
+            result_df = result_df[new_order]
+            
+            # Display the final table
+            st.markdown("### Cumulative Bowling Performance Across Phases")
+            st.table(result_df.style.set_table_attributes("style='font-weight: bold;'"))
+           
+            strong_against = []
+            weak_against = []
+            
+            # Check each phase's stats against the thresholds
+            for index, row in result_df.iterrows():
+                strong_count = 0
+                weak_count = 0
+                if row['PHASE']=='Powerplay':
+                    if row['INNINGS'] >= 3:
+                        # Evaluate strengths
+                        if row['SR'] <= strength_thresholds_pp['SR']:
+                            strong_count += 1
+                        if row['AVG'] <= strength_thresholds_pp['AVG']:
+                            strong_count += 1
+                        if row['DOT%'] >= strength_thresholds_pp['DOT%']:
+                            strong_count += 1
+                        if row['ECON'] <= strength_thresholds_pp['Econ']:
+                            strong_count += 1
+                
+                        # Evaluate weaknesses
+                        if row['SR'] >= weakness_thresholds_pp['SR']:
+                            weak_count += 1
+                        if row['AVG'] >= weakness_thresholds_pp['AVG']:
+                            weak_count += 1
+                        if row['DOT%'] <= weakness_thresholds_pp['DOT%']:
+                            weak_count += 1
+                        if row['ECON'] >= weakness_thresholds_pp['Econ']:
+                            weak_count += 1
+                
+                        # Determine strong/weak based on counts
+                        if strong_count >= 3:
+                            strong_against.append(row['PHASE'])
+                        if weak_count >= 3:
+                            weak_against.append(row['PHASE'])
+                if row['PHASE']=='Middle':
+                    if row['INNINGS'] >= 3:
+                        # Evaluate strengths
+                        if row['SR'] <= strength_thresholds_m['SR']:
+                            strong_count += 1
+                        if row['AVG'] <= strength_thresholds_m['AVG']:
+                            strong_count += 1
+                        if row['DOT%'] >= strength_thresholds_m['DOT%']:
+                            strong_count += 1
+                        if row['ECON'] <= strength_thresholds_m['Econ']:
+                            strong_count += 1
+                
+                        # Evaluate weaknesses
+                        if row['SR'] >= weakness_thresholds_m['SR']:
+                            weak_count += 1
+                        if row['AVG'] >= weakness_thresholds_m['AVG']:
+                            weak_count += 1
+                        if row['DOT%'] <= weakness_thresholds_m['DOT%']:
+                            weak_count += 1
+                        if row['ECON'] >=weakness_thresholds_m['Econ']:
+                            weak_count += 1
+                
+                        # Determine strong/weak based on counts
+                        if strong_count >= 3:
+                            strong_against.append(row['PHASE'])
+                        if weak_count >= 3:
+                            weak_against.append(row['PHASE'])
+                if row['PHASE']=='Death':
+                    if row['INNINGS'] >= 3:
+                        # Evaluate strengths
+                        if row['SR'] <= strength_thresholds_d['SR']:
+                            strong_count += 1
+                        if row['AVG'] <= strength_thresholds_d['AVG']:
+                            strong_count += 1
+                        if row['DOT%'] >= strength_thresholds_d['DOT%']:
+                            strong_count += 1
+                        if row['ECON'] <= strength_thresholds_d['Econ']:
+                            strong_count += 1
+                
+                        # Evaluate weaknesses
+                        if row['SR'] >= weakness_thresholds_d['SR']:
+                            weak_count += 1
+                        if row['AVG'] >= weakness_thresholds_d['AVG']:
+                            weak_count += 1
+                        if row['DOT%'] <= weakness_thresholds_d['DOT%']:
+                            weak_count += 1
+                        if row['ECON'] >=weakness_thresholds_d['Econ']:
+                            weak_count += 1
+                
+                        # Determine strong/weak based on counts
+                        if strong_count >= 3:
+                            strong_against.append(row['PHASE'])
+                        if weak_count >= 3:
+                            weak_against.append(row['PHASE'])
+                
+            
+            # Format the output message
+            strong_message = f"{player_name} is strong during: {', '.join(strong_against)}." if strong_against else f"{player_name} has no clear strengths in any phase."
+            weak_message = f"{player_name} is weak during: {', '.join(weak_against)}." if weak_against else f"{player_name} has no clear weaknesses in any phase."
+            
+            # Display strengths and weaknesses messages
+            st.markdown("##### Strengths and Weaknesses Across Phases")
+            st.write(strong_message)
+            st.write(weak_message)
+    
+            # Filter for the selected bowler's data
+            bowler_data = pdf[pdf['bowler'] == player_name]
+            
+            # Filter only the rows where the bowler has taken a wicket
+            bowler_wickets = bowler_data[bowler_data['bowler_wkt'] == 1]
+            
+            # Group by dismissal_kind and count the number of dismissals
+            bowler_dismissal_counts = bowler_wickets.groupby('dismissal_kind').size().reset_index(name='count')
+            
+            # Sort the dismissal kinds by count
+            bowler_dismissal_counts = bowler_dismissal_counts.sort_values(by='count', ascending=True)
+            bowler_dismissal_counts['dismissal_kind'] = bowler_dismissal_counts['dismissal_kind'].str.upper()
+            
+            # Plotting the horizontal bar chart for bowler's wickets by dismissal kind
+            plt.figure(figsize=(10, 6))
+            plt.barh(bowler_dismissal_counts['dismissal_kind'], bowler_dismissal_counts['count'], color='lightgreen')
+            plt.xlabel('Number of Wickets',fontsize=14)
+            plt.ylabel('Dismissal Type',fontsize=14)
+            plt.title(f'Number of Wickets by Dismissal Type for {player_name}',fontsize=18)
+            plt.grid(axis='x', linestyle='--', alpha=0.7)
+            plt.tight_layout()
+            st.pyplot(plt)
+
                   
     
