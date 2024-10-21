@@ -12,6 +12,7 @@ csv_files = [
 ]
 dataframes = [pd.read_csv(csv_file, low_memory=False) for csv_file in csv_files]
 pdf = pd.concat(dataframes)
+pdf['batsman'] = pdf['batsman'].replace({'AR Pandey': 'Akshat Pandey'})
 cols_conv=['season','match_id']
 pdf[cols_conv] = pdf[cols_conv].astype(str)
 pdf=pdf.rename(columns={'innings':'inning'})
@@ -21,9 +22,6 @@ bpdf[cols_conv] = bpdf[cols_conv].astype(str)
 idf = pd.read_csv("Dataset/lifesaver_bat_smat.csv",low_memory=False)
 # Replace 'AR Pandey' with 'Akshat Pandey' without affecting other values
 idf['batsman'] = idf['batsman'].replace({'AR Pandey': 'Akshat Pandey'})
-
-
-
 info_df=pd.read_csv("Dataset/cricket_players_data.csv",low_memory=False)
 bidf=pd.read_csv("Dataset/lifesaver_bowl_smat.csv",low_memory=False)
 info_df=info_df.rename(columns={'player':'Player_name'})
