@@ -23,6 +23,7 @@ idf = pd.read_csv("Dataset/lifesaver_bat_smat.csv",low_memory=False)
 # Replace 'AR Pandey' with 'Akshat Pandey' without affecting other values
 idf['batsman'] = idf['batsman'].replace({'AR Pandey': 'Akshat Pandey'})
 info_df=pd.read_csv("Dataset/cricket_players_data.csv",low_memory=False)
+bidf['bowler'] = bidf['bowler'].replace({'AR Pandey': 'Akshat Pandey'})
 bidf=pd.read_csv("Dataset/lifesaver_bowl_smat.csv",low_memory=False)
 info_df=info_df.rename(columns={'player':'Player_name'})
 pdf[['noballs', 'wides','byes','legbyes','penalty']] = pdf[['noballs', 'wides','byes','legbyes','penalty']].fillna(0).astype(int)
