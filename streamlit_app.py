@@ -601,7 +601,7 @@ pdf['bowling_style'] = pdf['bowling_style'].replace(bowling_style_mapping)
 # Sidebar for selecting between "Player Profile" and "Matchup Analysis"
 sidebar_option = st.sidebar.radio(
     "Select an option:",
-    ("Player Profile", "Matchup Analysis","Strength vs Weakness","Team Builder")
+    ("Player Profile", "Matchup Analysis","Strength vs Weakness")
 )
 
 if sidebar_option == "Player Profile":
