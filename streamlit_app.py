@@ -31,7 +31,8 @@ pdf[['noballs', 'wides','byes','legbyes','penalty']] = pdf[['noballs', 'wides','
 pdf['valid_ball'] = pdf.apply(lambda x: 1 if (x['wides'] == 0 and x['noballs'] == 0) else 0, axis=1)
 # idf=idf[idf['final_year']=='2023/24']
 idf = idf[idf['final_year'].isin(["2023/24"])]
-bidf = bidf[bidf['final_year'].isin(["2023/24"])]
+bidf = bidf[bidf['bowler'].str.split().str[0].str.len() > 2]
+
 
 bidf['bowler'] = bidf['bowler'].replace({'AR Pandey': 'Akshat Pandey'})
 def show_match_details(match_id):
